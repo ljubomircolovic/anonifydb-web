@@ -53,24 +53,47 @@
         @media (min-width: 640px) {
             .privacy-diagram { font-size: 11px; }
         }
+        /* Single-line headlines & nav: nowrap + horizontal scroll fallback on narrow viewports */
+        .headline-no-wrap-row {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .headline-no-wrap-row::-webkit-scrollbar {
+            display: none;
+        }
+        .headline-no-wrap-text {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .nav-hide-scrollbar {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .nav-hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 <body class="font-sans antialiased">
     <div class="hero-gradient min-h-screen">
-        <nav class="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center gap-4 relative z-50">
-            <div class="text-2xl font-bold tracking-tighter shrink-0">Anonify<span class="accent-text">DB</span></div>
-            <div class="hidden md:flex flex-wrap justify-end gap-x-5 lg:gap-x-8 gap-y-2 text-sm font-medium text-slate-400 max-w-[min(100%,36rem)] lg:max-w-none">
-                <a href="#why-we-built" class="hover:text-white transition whitespace-nowrap">Why we built</a>
-                <a href="#solution" class="hover:text-white transition">Solution</a>
-                <a href="#capabilities" class="hover:text-white transition whitespace-nowrap">Capabilities</a>
-                <a href="#developer-experience" class="hover:text-white transition whitespace-nowrap">Developers</a>
-                <a href="#security-modes" class="hover:text-white transition whitespace-nowrap">Privacy modes</a>
-                <a href="#killer-features" class="hover:text-white transition whitespace-nowrap">Enterprise</a>
-                <a href="#how-it-works" class="hover:text-white transition whitespace-nowrap">How it works</a>
-                <a href="#industries" class="hover:text-white transition">Industries</a>
-                <a href="#compliance" class="hover:text-white transition">Compliance</a>
+        <nav class="max-w-7xl mx-auto px-6 py-8 flex flex-nowrap justify-between items-center gap-4 relative z-50 min-w-0">
+            <div class="text-2xl font-bold tracking-tighter shrink-0 whitespace-nowrap">Anonify<span class="accent-text">DB</span></div>
+            <div class="hidden md:flex flex-nowrap flex-1 justify-end items-center gap-x-4 lg:gap-x-6 xl:gap-x-8 min-w-0 overflow-x-auto overscroll-x-contain nav-hide-scrollbar py-1 text-sm font-medium text-slate-400">
+                <a href="#why-we-built" class="hover:text-white transition shrink-0 whitespace-nowrap">Why we built</a>
+                <a href="#solution" class="hover:text-white transition shrink-0 whitespace-nowrap">Solution</a>
+                <a href="#capabilities" class="hover:text-white transition shrink-0 whitespace-nowrap">Capabilities</a>
+                <a href="#developer-experience" class="hover:text-white transition shrink-0 whitespace-nowrap">Developers</a>
+                <a href="#security-modes" class="hover:text-white transition shrink-0 whitespace-nowrap">Privacy modes</a>
+                <a href="#killer-features" class="hover:text-white transition shrink-0 whitespace-nowrap">Enterprise</a>
+                <a href="#how-it-works" class="hover:text-white transition shrink-0 whitespace-nowrap">How it works</a>
+                <a href="#industries" class="hover:text-white transition shrink-0 whitespace-nowrap">Industries</a>
+                <a href="#compliance" class="hover:text-white transition shrink-0 whitespace-nowrap">Compliance</a>
             </div>
-            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+            <div class="flex flex-nowrap items-center gap-2 sm:gap-3 shrink-0">
                 <a href="mailto:contact@anonifydb.com" class="hero-cta-primary bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition whitespace-nowrap">Request Early Access</a>
                 <button type="button" id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]" aria-expanded="false" aria-controls="mobile-menu-panel" aria-label="Open menu">
                     <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
@@ -100,18 +123,20 @@
         </div>
 
         <header class="max-w-5xl mx-auto px-6 pt-16 sm:pt-20 pb-12 sm:pb-16 text-center">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-5 sm:mb-6 leading-[1.08] text-balance">
-                Safe Data. <span class="accent-text">Faster Innovation.</span>
-            </h1>
+            <div class="headline-no-wrap-row mb-5 sm:mb-6 px-1">
+                <h1 class="headline-no-wrap-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08]">
+                    Safe Data. <span class="accent-text">Faster Innovation.</span>
+                </h1>
+            </div>
             <p class="text-lg sm:text-xl md:text-2xl text-slate-300 font-semibold max-w-3xl mx-auto mb-6 sm:mb-8 leading-snug text-balance">
                 Ninja has no face. Neither will your <span class="text-white">sensitive data</span>.
             </p>
             <p class="text-base sm:text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 sm:mb-12 leading-relaxed px-1">
                 Enterprise-grade anonymization for PostgreSQL, Oracle, and SQL Server on Azure—engineered for <strong class="text-slate-200 font-semibold">finance, banking, and insurance</strong> teams across the <strong class="text-slate-200 font-semibold">DACH region</strong>. GDPR-aligned controls that hold up under supervisory review.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto w-full">
-                <button type="button" id="btn-modal-use-cases" class="w-full sm:w-auto bg-white text-black px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]">View Use Cases</button>
-                <button type="button" id="btn-modal-whitepaper" class="w-full sm:w-auto border border-slate-700 px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-slate-800 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]">Technical Whitepaper</button>
+            <div class="flex flex-col sm:flex-row sm:flex-nowrap justify-center items-stretch sm:items-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto w-full">
+                <button type="button" id="btn-modal-use-cases" class="w-full sm:w-auto shrink-0 whitespace-nowrap bg-white text-black px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]">View Use Cases</button>
+                <button type="button" id="btn-modal-whitepaper" class="w-full sm:w-auto shrink-0 whitespace-nowrap border border-slate-700 px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-slate-800 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]">Technical Whitepaper</button>
             </div>
             <p class="mt-8 sm:mt-10 text-xs sm:text-sm font-medium tracking-wide text-slate-500 max-w-xl mx-auto px-2">Built for engineers. Trusted by the CISO.</p>
         </header>
@@ -130,7 +155,7 @@
     </div>
 
     <section id="why-we-built" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24">
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Why we built AnonifyDB</h2>
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Why we built AnonifyDB</h2></div>
         <p class="text-slate-400 text-center max-w-3xl mx-auto mb-10 md:mb-12 text-sm md:text-base leading-relaxed">Across Swiss banking and continental insurance, we kept watching the same failure mode: teams treating sensitive data access like a <strong class="text-slate-200 font-semibold">&ldquo;pinky swear&rdquo;</strong>—handshake NDAs, heroic manual exports, and ticket-by-ticket exceptions instead of enforceable controls.</p>
         <div class="max-w-3xl mx-auto rounded-3xl border border-slate-700/55 bg-slate-900/55 p-8 md:p-10 space-y-6 text-sm md:text-base text-slate-300 leading-relaxed">
             <p>Risk and privacy officers weren&rsquo;t blocking AI out of spite; they withheld production paths because nobody could show <strong class="text-white">consistent minimization at the wire</strong>. Every pilot became a bespoke negotiation—slow, brittle, and impossible to audit under supervisory scrutiny.</p>
@@ -139,20 +164,20 @@
     </section>
 
     <section id="solution" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">The Solution</h2>
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">The Solution</h2></div>
         <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12 md:mb-14 text-sm md:text-base leading-relaxed">Dual operating modes, surgical or full-database masking, and one-click provisioning—built for regulated Azure estates, AI-assisted workloads, and audit-ready evidence in banking and insurance.</p>
 
         <div class="grid md:grid-cols-3 gap-8 md:gap-10">
             <article class="rounded-3xl border border-slate-800 bg-slate-900/50 p-8 flex flex-col min-h-0 ring-1 ring-inset ring-slate-700/15">
                 <div class="text-blue-400 mb-4"><i data-lucide="layers" class="w-10 h-10" aria-hidden="true"></i></div>
-                <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-2">Pillar 01</p>
-                <h3 class="text-xl font-bold text-white mb-4">Multi-Source Parity</h3>
+                <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-2 whitespace-nowrap">Pillar 01</p>
+                <h3 class="text-xl font-bold text-white mb-4 whitespace-nowrap">Multi-Source Parity</h3>
                 <p class="text-slate-400 text-sm leading-relaxed flex-1"><strong class="text-slate-200">Databases:</strong> Oracle, SQL Server, PostgreSQL. <strong class="text-slate-200">Files:</strong> CSV, JSON, XML—the same deterministic rules whether rows arrive over JDBC or bulk ingest.</p>
             </article>
             <article class="rounded-3xl border border-sky-500/25 bg-slate-950/60 p-8 flex flex-col min-h-0 shadow-[0_0_40px_-16px_rgba(56,189,248,0.22)] ring-1 ring-sky-500/15">
                 <div class="text-sky-400 mb-4"><i data-lucide="snowflake" class="w-10 h-10" aria-hidden="true"></i></div>
-                <p class="text-[11px] font-semibold uppercase tracking-wider text-sky-500/80 mb-2">Pillar 02</p>
-                <h3 class="text-xl font-bold text-white mb-4">Sub-Zero Security</h3>
+                <p class="text-[11px] font-semibold uppercase tracking-wider text-sky-500/80 mb-2 whitespace-nowrap">Pillar 02</p>
+                <h3 class="text-xl font-bold text-white mb-4 whitespace-nowrap">Sub-Zero Security</h3>
                 <p class="text-slate-400 text-sm leading-relaxed flex-1 mb-4"><strong class="text-slate-200">AES-256</strong> encryption on connections. Sharp, frost-line isolation for workloads that cannot tolerate ambiguity.</p>
                 <div class="rounded-xl border border-sky-500/35 bg-sky-500/5 px-4 py-3 mt-auto">
                     <p class="text-[10px] font-bold uppercase tracking-wider text-sky-300 mb-1">Crucial</p>
@@ -161,38 +186,38 @@
             </article>
             <article class="rounded-3xl border border-slate-800 bg-slate-900/50 p-8 flex flex-col min-h-0 ring-1 ring-inset ring-slate-700/15">
                 <div class="text-blue-400 mb-4"><i data-lucide="sparkles" class="w-10 h-10" aria-hidden="true"></i></div>
-                <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-2">Pillar 03</p>
-                <h3 class="text-xl font-bold text-white mb-4">AI-Ready</h3>
+                <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-2 whitespace-nowrap">Pillar 03</p>
+                <h3 class="text-xl font-bold text-white mb-4 whitespace-nowrap">AI-Ready</h3>
                 <p class="text-slate-400 text-sm leading-relaxed flex-1">Expose <strong class="text-slate-200">real cohort patterns</strong> to models without identifiable subjects—velocity without dancing on the edge of <strong class="text-slate-200">GDPR fines</strong>.</p>
             </article>
         </div>
 
         <div id="capabilities" class="max-w-5xl mx-auto mt-14 md:mt-16 scroll-mt-24 rounded-lg border border-sky-500/25 bg-slate-950 shadow-[0_0_48px_-14px_rgba(56,189,248,0.2)] ring-1 ring-sky-400/15 overflow-hidden" aria-label="Features and technical specifications">
-            <div class="flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-slate-800 bg-slate-900/95 px-4 py-2.5 font-mono text-[10px] sm:text-[11px]">
+            <div class="flex flex-nowrap items-center gap-x-3 gap-y-1 border-b border-slate-800 bg-slate-900/95 px-4 py-2.5 font-mono text-[10px] sm:text-[11px] min-w-0 overflow-x-auto nav-hide-scrollbar">
                 <span class="flex gap-1.5 shrink-0" aria-hidden="true">
                     <span class="h-2 w-2 rounded-full bg-red-500/75"></span>
                     <span class="h-2 w-2 rounded-full bg-amber-400/75"></span>
                     <span class="h-2 w-2 rounded-full bg-emerald-500/65"></span>
                 </span>
-                <span class="text-sky-400/95 tracking-tight">tech_specs.ts</span>
-                <span class="text-slate-600 hidden sm:inline">—</span>
-                <span class="text-slate-500 tracking-tight hidden sm:inline break-all sm:break-words">proxy · at_rest · api_first · granularity · deploy_pipeline · tenant_scope=customer</span>
+                <span class="text-sky-400/95 tracking-tight shrink-0 whitespace-nowrap">tech_specs.ts</span>
+                <span class="text-slate-600 hidden sm:inline shrink-0">—</span>
+                <span class="text-slate-500 tracking-tight hidden sm:inline whitespace-nowrap shrink-0">proxy · at_rest · api_first · granularity · deploy_pipeline · tenant_scope=customer</span>
             </div>
             <div class="relative px-5 py-6 md:px-8 md:py-8 border-t border-sky-500/10">
                 <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(transparent_0px,rgba(15,23,42,0.4)_1px,transparent_2px)] bg-[length:100%_3px] opacity-40" aria-hidden="true"></div>
                 <div class="relative space-y-8">
                     <div>
-                        <h3 class="text-lg md:text-xl font-bold text-white mb-2">Features &amp; technical specifications</h3>
+                        <div class="headline-no-wrap-row mb-2 justify-start"><h3 class="headline-no-wrap-text text-lg md:text-xl font-bold text-white">Features &amp; technical specifications</h3></div>
                         <p class="text-sm md:text-base text-slate-300 leading-relaxed">Production-aligned masking for supervisory environments: <strong class="text-white">dual operating mode</strong> (proxy vs. at-rest), <strong class="text-white">programmatic delivery</strong> via API for agents and CI/CD, and <strong class="text-white">one-click deployment</strong> into isolated targets—without sacrificing join fidelity or audit evidence.</p>
                     </div>
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
                         <article class="rounded-xl border border-slate-700/80 bg-slate-900/80 p-5 md:p-6 flex flex-col gap-4 ring-1 ring-inset ring-slate-700/10">
-                            <div class="flex items-start gap-3">
+                            <div class="flex flex-nowrap items-start gap-3 min-w-0">
                                 <span class="text-sky-400 shrink-0 mt-0.5" aria-hidden="true"><i data-lucide="git-branch" class="w-8 h-8"></i></span>
-                                <div class="min-w-0">
-                                    <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">Pillar 01</p>
-                                    <h4 class="text-base md:text-lg font-bold text-white leading-snug">Dual operating mode</h4>
-                                    <p class="text-xs text-slate-500 mt-1 font-medium">Proxy vs. at-rest</p>
+                                <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
+                                    <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1 whitespace-nowrap">Pillar 01</p>
+                                    <h4 class="text-base md:text-lg font-bold text-white leading-snug whitespace-nowrap">Dual operating mode</h4>
+                                    <p class="text-xs text-slate-500 mt-1 font-medium whitespace-nowrap">Proxy vs. at-rest</p>
                                 </div>
                             </div>
                             <div class="space-y-3 text-sm text-slate-400 leading-relaxed flex-1">
@@ -207,12 +232,12 @@
                             </div>
                         </article>
                         <article class="rounded-xl border border-slate-700/80 bg-slate-900/80 p-5 md:p-6 flex flex-col gap-4 ring-1 ring-inset ring-slate-700/10">
-                            <div class="flex items-start gap-3">
+                            <div class="flex flex-nowrap items-start gap-3 min-w-0">
                                 <span class="text-sky-400 shrink-0 mt-0.5" aria-hidden="true"><i data-lucide="layout-grid" class="w-8 h-8"></i></span>
-                                <div class="min-w-0">
-                                    <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">Pillar 02</p>
-                                    <h4 class="text-base md:text-lg font-bold text-white leading-snug">Anonymization granularity</h4>
-                                    <p class="text-xs text-slate-500 mt-1 font-medium">Partial vs. full database</p>
+                                <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
+                                    <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1 whitespace-nowrap">Pillar 02</p>
+                                    <h4 class="text-base md:text-lg font-bold text-white leading-snug whitespace-nowrap">Anonymization granularity</h4>
+                                    <p class="text-xs text-slate-500 mt-1 font-medium whitespace-nowrap">Partial vs. full database</p>
                                 </div>
                             </div>
                             <div class="space-y-3 text-sm text-slate-400 leading-relaxed flex-1">
@@ -227,12 +252,12 @@
                             </div>
                         </article>
                         <article class="rounded-xl border border-sky-500/20 bg-slate-950/70 p-5 md:p-6 flex flex-col gap-4 shadow-[0_0_32px_-12px_rgba(56,189,248,0.18)] ring-1 ring-sky-500/10">
-                            <div class="flex items-start gap-3">
+                            <div class="flex flex-nowrap items-start gap-3 min-w-0">
                                 <span class="text-sky-400 shrink-0 mt-0.5 text-2xl leading-none" aria-hidden="true">🚀</span>
-                                <div class="min-w-0">
-                                    <p class="text-[11px] font-semibold uppercase tracking-wider text-sky-500/80 mb-1">Pillar 03</p>
-                                    <h4 class="text-base md:text-lg font-bold text-white leading-snug">Deploy anonymized instance</h4>
-                                    <p class="text-xs text-slate-500 mt-1 font-medium">One-click scalability &amp; UX</p>
+                                <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
+                                    <p class="text-[11px] font-semibold uppercase tracking-wider text-sky-500/80 mb-1 whitespace-nowrap">Pillar 03</p>
+                                    <h4 class="text-base md:text-lg font-bold text-white leading-snug whitespace-nowrap">Deploy anonymized instance</h4>
+                                    <p class="text-xs text-slate-500 mt-1 font-medium whitespace-nowrap">One-click scalability &amp; UX</p>
                                 </div>
                             </div>
                             <p class="text-sm text-slate-400 leading-relaxed"><strong class="text-slate-200">Single action</strong> kicks off the governed pipeline: <strong class="text-white font-mono text-xs sm:text-sm">Scan → Plan → Execute</strong>. The platform provisions a fresh database or schema—such as an <strong class="text-slate-200">Azure SQL</strong> instance—and <strong class="text-slate-200">loads anonymized data</strong> directly into your non-production target so testers and AI sandboxes stay isolated from production.</p>
@@ -265,17 +290,17 @@
 
     <section id="developer-experience" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
         <p class="text-center text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-3">For lead engineers &amp; platform security</p>
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Developer &amp; AI agent enablement</h2>
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Developer &amp; AI agent enablement</h2></div>
         <p class="text-slate-400 text-center max-w-3xl mx-auto mb-4 text-sm md:text-base leading-relaxed">AnonifyDB functions as a <strong class="text-slate-200 font-semibold">data delivery layer</strong>: provision governed, anonymized databases through contracts your toolchain already understands—without queueing weeks for manual compliance sign-off on every refresh.</p>
         <p class="text-slate-500 text-center max-w-2xl mx-auto mb-12 md:mb-14 text-xs md:text-sm leading-relaxed">Policy gates remain authoritative; execution becomes repeatable, observable, and safe for autonomous tooling.</p>
 
         <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8">
             <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-8 ring-1 ring-inset ring-slate-700/10 flex flex-col">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-sky-500/10 border border-sky-500/25 text-sky-400" aria-hidden="true"><i data-lucide="webhook" class="w-5 h-5"></i></span>
-                    <div>
-                        <p class="text-[11px] font-semibold uppercase tracking-wider text-sky-500/80">API-first</p>
-                        <h3 class="text-lg font-bold text-white">Single API orchestration</h3>
+                <div class="flex flex-nowrap items-center gap-3 mb-5 min-w-0">
+                    <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-sky-500/10 border border-sky-500/25 text-sky-400" aria-hidden="true"><i data-lucide="webhook" class="w-5 h-5"></i></span>
+                    <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
+                        <p class="text-[11px] font-semibold uppercase tracking-wider text-sky-500/80 whitespace-nowrap">API-first</p>
+                        <h3 class="text-lg font-bold text-white whitespace-nowrap">Single API orchestration</h3>
                     </div>
                 </div>
                 <p class="text-sm text-slate-400 leading-relaxed flex-1 mb-6">One authenticated request can trigger the full <strong class="text-slate-200">scan → plan → execute</strong> pipeline and return a <strong class="text-slate-200">ready-to-use database endpoint</strong>—aligned with the same policies your CISO approved for batch and proxy paths.</p>
@@ -288,11 +313,11 @@
                 </div>
             </article>
             <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-8 ring-1 ring-inset ring-slate-700/10 flex flex-col">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-500/10 border border-indigo-500/25 text-indigo-400" aria-hidden="true"><i data-lucide="workflow" class="w-5 h-5"></i></span>
-                    <div>
-                        <p class="text-[11px] font-semibold uppercase tracking-wider text-indigo-400/90">Uniform surface</p>
-                        <h3 class="text-lg font-bold text-white">Human or agent, same contract</h3>
+                <div class="flex flex-nowrap items-center gap-3 mb-5 min-w-0">
+                    <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-500/10 border border-indigo-500/25 text-indigo-400" aria-hidden="true"><i data-lucide="workflow" class="w-5 h-5"></i></span>
+                    <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
+                        <p class="text-[11px] font-semibold uppercase tracking-wider text-indigo-400/90 whitespace-nowrap">Uniform surface</p>
+                        <h3 class="text-lg font-bold text-white whitespace-nowrap">Human or agent, same contract</h3>
                     </div>
                 </div>
                 <p class="text-sm text-slate-400 leading-relaxed flex-1">Whether the caller is an engineer in a terminal or an <strong class="text-slate-200">AI coding agent</strong> inside an autonomous loop (for example Cursor or GitHub Copilot-driven workflows), the integration surface is identical: request an environment, receive a <strong class="text-slate-200">fresh anonymized connection string</strong> and bounded credentials—no shadow exports.</p>
@@ -306,17 +331,17 @@
 
     <section id="security-modes" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
         <p class="text-center text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-3">Security architecture</p>
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Dual-layer privacy</h2>
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Dual-layer privacy</h2></div>
         <p class="text-slate-400 text-center max-w-3xl mx-auto mb-12 md:mb-14 text-sm md:text-base leading-relaxed">Two masking depths for two threat models—chosen per workload, dataset, or agent trust boundary. <strong class="text-slate-200 font-semibold">Chief Information Security Officers</strong> retain policy ownership; <strong class="text-slate-200 font-semibold">lead engineers</strong> select the mode that matches refactoring vs. third-party AI exposure.</p>
 
         <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
             <article class="rounded-2xl border border-emerald-900/35 bg-slate-900/40 p-6 md:p-8 flex flex-col ring-1 ring-emerald-500/10">
-                <div class="flex items-start justify-between gap-4 mb-6">
-                    <div class="flex items-center gap-3 min-w-0">
+                <div class="flex flex-nowrap items-start justify-between gap-4 mb-6">
+                    <div class="flex flex-nowrap items-center gap-3 min-w-0">
                         <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400" aria-hidden="true"><i data-lucide="database" class="w-5 h-5"></i></span>
-                        <div>
-                            <h3 class="text-lg font-bold text-white leading-snug">Data anonymization</h3>
-                            <p class="text-xs text-emerald-400/90 font-semibold uppercase tracking-wider mt-0.5">Standard · schema-stable</p>
+                        <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
+                            <h3 class="text-lg font-bold text-white leading-snug whitespace-nowrap">Data anonymization</h3>
+                            <p class="text-xs text-emerald-400/90 font-semibold uppercase tracking-wider mt-0.5 whitespace-nowrap">Standard · schema-stable</p>
                         </div>
                     </div>
                 </div>
@@ -334,12 +359,12 @@
             </article>
 
             <article class="rounded-2xl border border-violet-900/40 bg-slate-900/40 p-6 md:p-8 flex flex-col ring-1 ring-violet-500/15">
-                <div class="flex items-start justify-between gap-4 mb-6">
-                    <div class="flex items-center gap-3 min-w-0">
+                <div class="flex flex-nowrap items-start justify-between gap-4 mb-6">
+                    <div class="flex flex-nowrap items-center gap-3 min-w-0">
                         <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-violet-500/10 border border-violet-500/35 text-violet-400" aria-hidden="true"><i data-lucide="eye-off" class="w-5 h-5"></i></span>
-                        <div>
-                            <h3 class="text-lg font-bold text-white leading-snug">Structural anonymization</h3>
-                            <p class="text-xs text-violet-300/90 font-semibold uppercase tracking-wider mt-0.5">Paranoid · agent-safe</p>
+                        <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
+                            <h3 class="text-lg font-bold text-white leading-snug whitespace-nowrap">Structural anonymization</h3>
+                            <p class="text-xs text-violet-300/90 font-semibold uppercase tracking-wider mt-0.5 whitespace-nowrap">Paranoid · agent-safe</p>
                         </div>
                     </div>
                 </div>
@@ -371,16 +396,16 @@
 
     <section id="killer-features" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
         <p class="text-center text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-3">Enterprise · supervisory-grade controls</p>
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Killer features for compliance velocity</h2>
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Killer features for compliance velocity</h2></div>
         <p class="text-slate-400 text-center max-w-3xl mx-auto mb-12 md:mb-14 text-sm md:text-base leading-relaxed">Ship at FinTech cadence without outrunning legal: cryptographic evidence, incremental synchronization, live egress enforcement, and ephemeral compute—each tuned so <strong class="text-slate-200 font-semibold">engineering throughput</strong> and <strong class="text-slate-200 font-semibold">regulatory defensibility</strong> rise together.</p>
 
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
             <article class="rounded-2xl border border-slate-800 bg-slate-900/55 p-6 md:p-7 flex flex-col ring-1 ring-inset ring-slate-700/10">
-                <div class="flex items-start gap-4 mb-5">
+                <div class="flex flex-nowrap items-start gap-4 mb-5 min-w-0">
                     <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400" aria-hidden="true"><i data-lucide="shield-check" class="w-6 h-6"></i></span>
-                    <div class="min-w-0">
-                        <p class="text-[11px] font-semibold uppercase tracking-wider text-teal-400/90 mb-1">Compliance certification</p>
-                        <h3 class="text-lg font-bold text-white leading-snug">The Auditor&rsquo;s Ledger</h3>
+                    <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
+                        <p class="text-[11px] font-semibold uppercase tracking-wider text-teal-400/90 mb-1 whitespace-nowrap">Compliance certification</p>
+                        <h3 class="text-lg font-bold text-white leading-snug whitespace-nowrap">The Auditor&rsquo;s Ledger</h3>
                     </div>
                 </div>
                 <p class="text-sm text-slate-400 leading-relaxed flex-1">Every anonymization run yields <strong class="text-slate-200">auto-generated, digitally signed compliance certificates</strong>—delivered as <strong class="text-slate-200">PDF artifacts bound to a cryptographic hash</strong>—so integrity and provenance are trivially verifiable.</p>
@@ -389,11 +414,11 @@
             </article>
 
             <article class="rounded-2xl border border-slate-800 bg-slate-900/55 p-6 md:p-7 flex flex-col ring-1 ring-inset ring-slate-700/10">
-                <div class="flex items-start gap-4 mb-5">
+                <div class="flex flex-nowrap items-start gap-4 mb-5 min-w-0">
                     <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 border border-amber-500/35 text-amber-400" aria-hidden="true"><i data-lucide="gauge" class="w-6 h-6"></i></span>
-                    <div class="min-w-0">
-                        <p class="text-[11px] font-semibold uppercase tracking-wider text-amber-400/90 mb-1">Performance &amp; cloud economics</p>
-                        <h3 class="text-lg font-bold text-white leading-snug">Smart Delta Refresh</h3>
+                    <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
+                        <p class="text-[11px] font-semibold uppercase tracking-wider text-amber-400/90 mb-1 whitespace-nowrap">Performance &amp; cloud economics</p>
+                        <h3 class="text-lg font-bold text-white leading-snug whitespace-nowrap">Smart Delta Refresh</h3>
                     </div>
                 </div>
                 <p class="text-sm text-slate-400 leading-relaxed flex-1"><strong class="text-slate-200">Intelligent incremental masking</strong> fingerprints production churn and applies transformations only to <strong class="text-slate-200">new or modified rows</strong>, then reconciles downstream dev and test targets—no wholesale table rewipes when a slice of the ledger moved.</p>
@@ -402,11 +427,11 @@
             </article>
 
             <article class="rounded-2xl border border-slate-800 bg-slate-900/55 p-6 md:p-7 flex flex-col ring-1 ring-inset ring-slate-700/10">
-                <div class="flex items-start gap-4 mb-5">
+                <div class="flex flex-nowrap items-start gap-4 mb-5 min-w-0">
                     <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-rose-500/10 border border-rose-500/35 text-rose-400" aria-hidden="true"><i data-lucide="scan-search" class="w-6 h-6"></i></span>
-                    <div class="min-w-0">
-                        <p class="text-[11px] font-semibold uppercase tracking-wider text-rose-400/90 mb-1">Egress enforcement</p>
-                        <h3 class="text-lg font-bold text-white leading-snug">PII &lsquo;Canary&rsquo; Detector</h3>
+                    <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
+                        <p class="text-[11px] font-semibold uppercase tracking-wider text-rose-400/90 mb-1 whitespace-nowrap">Egress enforcement</p>
+                        <h3 class="text-lg font-bold text-white leading-snug whitespace-nowrap">PII &lsquo;Canary&rsquo; Detector</h3>
                     </div>
                 </div>
                 <p class="text-sm text-slate-400 leading-relaxed flex-1">An active control plane watches <strong class="text-slate-200">data exiting toward third-party AI endpoints</strong>—public LLM APIs, hosted copilots, or opaque agent runtimes—and continuously scores payloads against high-precision patterns.</p>
@@ -418,18 +443,20 @@
         <div class="max-w-6xl mx-auto relative rounded-3xl overflow-hidden border-2 border-cyan-500/45 bg-gradient-to-br from-slate-950 via-cyan-950/40 to-indigo-950 shadow-[0_0_64px_-12px_rgba(34,211,238,0.35),inset_0_1px_0_0_rgba(255,255,255,0.06)] ring-1 ring-cyan-400/20">
             <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(34,211,238,0.18),transparent_55%)]" aria-hidden="true"></div>
             <div class="relative px-6 py-10 md:px-10 md:py-12 lg:px-14 lg:py-14">
-                <div class="flex flex-wrap items-center gap-3 mb-6">
-                    <span class="inline-flex items-center rounded-full border border-cyan-400/50 bg-cyan-500/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-cyan-200">New</span>
-                    <span class="inline-flex items-center rounded-full border border-indigo-400/40 bg-indigo-500/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-indigo-200">Beta</span>
-                    <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 hidden sm:inline">Innovation spotlight</span>
+                <div class="flex flex-nowrap items-center gap-3 mb-6 min-w-0 overflow-x-auto nav-hide-scrollbar">
+                    <span class="inline-flex shrink-0 items-center rounded-full border border-cyan-400/50 bg-cyan-500/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-cyan-200 whitespace-nowrap">New</span>
+                    <span class="inline-flex shrink-0 items-center rounded-full border border-indigo-400/40 bg-indigo-500/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-indigo-200 whitespace-nowrap">Beta</span>
+                    <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 hidden sm:inline shrink-0 whitespace-nowrap">Innovation spotlight</span>
                 </div>
                 <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-12">
                     <div class="max-w-2xl">
-                        <div class="flex items-center gap-3 mb-4">
+                        <div class="flex flex-nowrap items-center gap-3 mb-4 min-w-0">
                             <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-500/15 border border-cyan-400/40 text-cyan-300" aria-hidden="true"><i data-lucide="cloud-off" class="w-6 h-6"></i></span>
-                            <h3 class="text-2xl md:text-3xl lg:text-[1.75rem] font-extrabold tracking-tight text-white leading-tight">Ghost environments</h3>
+                            <h3 class="text-2xl md:text-3xl lg:text-[1.75rem] font-extrabold tracking-tight text-white leading-tight whitespace-nowrap shrink-0">Ghost environments</h3>
                         </div>
-                        <p class="text-xl md:text-2xl font-bold text-cyan-100/95 leading-snug mb-6">&ldquo;One API call, zero trace, total compliance.&rdquo;</p>
+                        <div class="headline-no-wrap-row mb-6 justify-start">
+                            <p class="headline-no-wrap-text text-xl md:text-2xl font-bold text-cyan-100/95 leading-snug">&ldquo;One API call, zero trace, total compliance.&rdquo;</p>
+                        </div>
                         <p class="text-sm md:text-base text-slate-300 leading-relaxed mb-5">Developers and autonomous agents never touch a durable connection string. Instead they receive ephemeral access to a <strong class="text-white">Ghost database</strong>: an <strong class="text-white">in-memory instance</strong> spun on demand inside your perimeter, fed only by governed masking pipelines.</p>
                         <p class="text-sm md:text-base text-slate-400 leading-relaxed">When the session terminates, working sets evaporate—<strong class="text-slate-300">no residual pages</strong>, <strong class="text-slate-300">no orphaned replicas</strong>—preserving data-subject minimization narratives regulators actually accept.</p>
                     </div>
@@ -439,21 +466,23 @@
                             <li class="flex gap-3">
                                 <span class="font-mono text-cyan-400 shrink-0 font-bold">1</span>
                                 <div>
-                                    <p class="font-semibold text-white mb-1"><span class="text-emerald-400 font-mono text-xs sm:text-sm">GET</span> <span class="font-mono text-xs sm:text-sm text-slate-200 break-all">/ghost-db/request</span></p>
+                                    <div class="overflow-x-auto nav-hide-scrollbar max-w-full mb-1">
+                                        <p class="font-semibold text-white whitespace-nowrap"><span class="text-emerald-400 font-mono text-xs sm:text-sm">GET</span> <span class="font-mono text-xs sm:text-sm text-slate-200">/ghost-db/request</span></p>
+                                    </div>
                                     <p class="text-slate-500 text-xs leading-relaxed">Authenticated lease describing scope, TTL, and policy bundle.</p>
                                 </div>
                             </li>
                             <li class="flex gap-3">
                                 <span class="font-mono text-cyan-400 shrink-0 font-bold">2</span>
                                 <div>
-                                    <p class="font-semibold text-white mb-1">Ephemeral instance online</p>
+                                    <p class="font-semibold text-white mb-1 whitespace-nowrap">Ephemeral instance online</p>
                                     <p class="text-slate-500 text-xs leading-relaxed">In-memory engine materializes masked projections for the session—no persistent SKU billed as permanent inventory.</p>
                                 </div>
                             </li>
                             <li class="flex gap-3">
                                 <span class="font-mono text-cyan-400 shrink-0 font-bold">3</span>
                                 <div>
-                                    <p class="font-semibold text-white mb-1">Session ends → footprint erased</p>
+                                    <p class="font-semibold text-white mb-1 whitespace-nowrap">Session ends → footprint erased</p>
                                     <p class="text-slate-500 text-xs leading-relaxed">Lease expiry or explicit teardown destroys buffers and credentials; only Auditor&rsquo;s Ledger hashes remain for supervisory replay.</p>
                                 </div>
                             </li>
@@ -465,15 +494,15 @@
     </section>
 
     <section id="how-it-works" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">How it works</h2>
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">How it works</h2></div>
         <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12 md:mb-14 text-sm md:text-base">From attachment to anonymized consumption—three reproducible steps.</p>
         <div class="max-w-5xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-stretch md:justify-between gap-4 md:gap-3" role="list" aria-label="Workflow steps">
                 <div class="flex-1 min-w-0 rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-7" role="listitem">
                     <span class="font-mono text-sky-400 text-sm font-bold mb-3 block">01</span>
-                    <div class="flex items-center gap-3 mb-3">
+                    <div class="flex flex-nowrap items-center gap-3 mb-3 min-w-0">
                         <span class="text-blue-400 shrink-0" aria-hidden="true"><i data-lucide="plug" class="w-8 h-8"></i></span>
-                        <h3 class="text-lg font-bold text-white">Connect</h3>
+                        <h3 class="text-lg font-bold text-white whitespace-nowrap">Connect</h3>
                     </div>
                     <p class="text-sm text-slate-400 leading-relaxed">Securely link sources into the governed perimeter.</p>
                 </div>
@@ -483,9 +512,9 @@
                 </div>
                 <div class="flex-1 min-w-0 rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-7" role="listitem">
                     <span class="font-mono text-sky-400 text-sm font-bold mb-3 block">02</span>
-                    <div class="flex items-center gap-3 mb-3">
+                    <div class="flex flex-nowrap items-center gap-3 mb-3 min-w-0">
                         <span class="text-blue-400 shrink-0" aria-hidden="true"><i data-lucide="map" class="w-8 h-8"></i></span>
-                        <h3 class="text-lg font-bold text-white">Map</h3>
+                        <h3 class="text-lg font-bold text-white whitespace-nowrap">Map</h3>
                     </div>
                     <p class="text-sm text-slate-400 leading-relaxed">Define rules via <strong class="text-slate-300 font-medium">Metadata</strong>—columns, entities, and policy scopes.</p>
                 </div>
@@ -495,9 +524,9 @@
                 </div>
                 <div class="flex-1 min-w-0 rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-7" role="listitem">
                     <span class="font-mono text-sky-400 text-sm font-bold mb-3 block">03</span>
-                    <div class="flex items-center gap-3 mb-3">
+                    <div class="flex flex-nowrap items-center gap-3 mb-3 min-w-0">
                         <span class="text-blue-400 shrink-0" aria-hidden="true"><i data-lucide="wand-2" class="w-8 h-8"></i></span>
-                        <h3 class="text-lg font-bold text-white">Anonymize</h3>
+                        <h3 class="text-lg font-bold text-white whitespace-nowrap">Anonymize</h3>
                     </div>
                     <p class="text-sm text-slate-400 leading-relaxed">Real-time, context-preserving anonymization.</p>
                 </div>
@@ -506,34 +535,34 @@
     </section>
 
     <section id="industries" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Built for DACH finance</h2>
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Built for DACH finance</h2></div>
         <p class="text-slate-400 text-center max-w-2xl mx-auto mb-10 md:mb-12 text-sm md:text-base leading-relaxed"><strong class="text-slate-200 font-semibold">Finance, banking, and insurance</strong> in Germany, Austria, and Switzerland—where BaFin, FMA, and FINMA-aligned scrutiny makes anonymization a board-level control, not an engineering nicety.</p>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
             <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 text-center flex flex-col items-center gap-3 hover:border-slate-700 transition">
                 <span class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-slate-950 border border-slate-800 text-blue-400" aria-hidden="true"><i data-lucide="landmark" class="w-8 h-8"></i></span>
-                <h3 class="text-base font-bold text-white">Banking</h3>
+                <h3 class="text-base font-bold text-white whitespace-nowrap">Banking</h3>
                 <p class="text-xs text-slate-500 leading-snug">Core banking, payments &amp; risk analytics</p>
             </div>
             <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 text-center flex flex-col items-center gap-3 hover:border-slate-700 transition">
                 <span class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-slate-950 border border-slate-800 text-blue-400" aria-hidden="true"><i data-lucide="shield" class="w-8 h-8"></i></span>
-                <h3 class="text-base font-bold text-white">Insurance</h3>
+                <h3 class="text-base font-bold text-white whitespace-nowrap">Insurance</h3>
                 <p class="text-xs text-slate-500 leading-snug">Life, P&amp;C, reinsurance &amp; fraud models</p>
             </div>
             <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 text-center flex flex-col items-center gap-3 hover:border-slate-700 transition">
                 <span class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-slate-950 border border-slate-800 text-blue-400" aria-hidden="true"><i data-lucide="building-2" class="w-8 h-8"></i></span>
-                <h3 class="text-base font-bold text-white">Finance &amp; markets</h3>
+                <h3 class="text-base font-bold text-white whitespace-nowrap">Finance &amp; markets</h3>
                 <p class="text-xs text-slate-500 leading-snug">Asset managers, FMIs &amp; capital markets tech</p>
             </div>
             <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 text-center flex flex-col items-center gap-3 hover:border-slate-700 transition">
                 <span class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-slate-950 border border-slate-800 text-blue-400" aria-hidden="true"><i data-lucide="scale" class="w-8 h-8"></i></span>
-                <h3 class="text-base font-bold text-white">Compliance-led IT</h3>
+                <h3 class="text-base font-bold text-white whitespace-nowrap">Compliance-led IT</h3>
                 <p class="text-xs text-slate-500 leading-snug">Legal, audit &amp; outsourcing governance</p>
             </div>
         </div>
     </section>
 
     <section id="compliance" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Compliance</h2>
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Compliance</h2></div>
         <p class="text-slate-400 text-center max-w-2xl mx-auto mb-6 text-sm md:text-base leading-relaxed"><strong class="text-slate-200 font-semibold">GDPR sovereignty</strong> means data stays within your governed boundary, processed under documented purpose and minimization—not repatriated through opaque AI prompts or shared inference tiers.</p>
         <p class="text-slate-400 text-center max-w-2xl mx-auto mb-8 text-sm md:text-base leading-relaxed">Raw production identifiers in LLM context or autonomous agents collide with Articles 5 and 25 obligations; supervisors treat &ldquo;pilot exceptions&rdquo; as institutional risk.</p>
         <div class="max-w-3xl mx-auto mb-6 rounded-xl border border-violet-900/40 bg-violet-950/20 px-4 py-4 sm:px-5 sm:py-4 flex gap-3 sm:gap-4" role="note">
@@ -686,8 +715,12 @@
         </div>
     </div>
 
-    <footer class="py-12 border-t border-slate-900 text-center text-slate-600 text-sm">
+    <footer id="contact" class="py-12 border-t border-slate-900 text-center text-slate-600 text-sm space-y-3 px-6">
         <p>© 2026 AnonifyDB. Built for engineers. Trusted by the CISO.</p>
+        <p>
+            <span class="text-slate-500">Contact:</span>
+            <a href="mailto:contact@anonifydb.com" class="text-sky-400 hover:text-sky-300 transition whitespace-nowrap font-medium">contact@anonifydb.com</a>
+        </p>
     </footer>
 
     <script>
