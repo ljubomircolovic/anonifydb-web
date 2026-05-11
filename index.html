@@ -27,6 +27,11 @@
         details.section-expand[open] .section-expand-chevron {
             transform: rotate(180deg);
         }
+        /* Modals: reduce iOS overscroll bleed while open */
+        body.overflow-modal-lock {
+            overflow: hidden;
+            overscroll-behavior: none;
+        }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -69,8 +74,8 @@
                 Secure your databases before they reach LLMs. Prevent the <strong>BodySnatcher Effect</strong> and stay GDPR compliant while scaling your AI agents.
             </p>
             <div class="flex flex-col md:flex-row justify-center gap-4">
-                <button class="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-200 transition">View Use Cases</button>
-                <button class="border border-slate-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-800 transition">Technical Whitepaper</button>
+                <button type="button" id="btn-modal-use-cases" class="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]">View Use Cases</button>
+                <button type="button" id="btn-modal-whitepaper" class="border border-slate-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-800 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]">Technical Whitepaper</button>
             </div>
         </header>
 
@@ -301,6 +306,74 @@
         </div>
     </section>
 
+    <!-- Modal: Enterprise AI Use Cases -->
+    <div id="modal-use-cases" class="fixed inset-0 z-[100] hidden" aria-hidden="true">
+        <div id="modal-use-cases-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm" aria-hidden="true"></div>
+        <div class="relative flex min-h-full items-end sm:items-center justify-center p-4 pt-10 sm:p-6 sm:pt-6 pb-[max(1rem,env(safe-area-inset-bottom))] pointer-events-none">
+            <div role="dialog" aria-modal="true" aria-labelledby="modal-use-cases-title" tabindex="-1" class="pointer-events-auto w-full max-w-lg max-h-[min(85dvh,640px)] sm:max-h-[min(90dvh,720px)] overflow-y-auto overscroll-contain rounded-t-2xl sm:rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl outline-none flex flex-col">
+                <div class="sticky top-0 z-10 flex justify-end border-b border-slate-800/80 bg-slate-900/95 backdrop-blur px-4 py-3 sm:px-6 sm:py-4 rounded-t-2xl">
+                    <button type="button" id="modal-use-cases-close" class="inline-flex items-center justify-center rounded-lg border border-slate-700 px-3 py-2 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        Close
+                    </button>
+                </div>
+                <div class="px-5 py-5 sm:px-8 sm:py-6 flex-1">
+                    <h2 id="modal-use-cases-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-6 pr-2">Enterprise AI Use Cases</h2>
+                    <ul class="space-y-6">
+                        <li class="rounded-xl border border-slate-800 bg-slate-950/40 p-4 sm:p-5">
+                            <h3 class="text-base font-bold text-slate-100 mb-2">Safe LLM Fine-tuning</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed">Securely use production-grade datasets for training local models without exposing PII.</p>
+                        </li>
+                        <li class="rounded-xl border border-slate-800 bg-slate-950/40 p-4 sm:p-5">
+                            <h3 class="text-base font-bold text-slate-100 mb-2">Third-Party AI Integration</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed">Strip sensitive data from user prompts before they hit public LLM APIs (OpenAI/Claude).</p>
+                        </li>
+                        <li class="rounded-xl border border-slate-800 bg-slate-950/40 p-4 sm:p-5">
+                            <h3 class="text-base font-bold text-slate-100 mb-2">Compliant Cross-Border Dev</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed">Enable off-shore engineering teams to debug with context-rich, yet fully anonymized data.</p>
+                        </li>
+                    </ul>
+                    <p class="mt-6 pt-5 border-t border-slate-800 text-center text-xs text-slate-600">Built for engineers. Trusted by the CISO.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Technical Whitepaper summary -->
+    <div id="modal-whitepaper" class="fixed inset-0 z-[100] hidden" aria-hidden="true">
+        <div id="modal-whitepaper-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm" aria-hidden="true"></div>
+        <div class="relative flex min-h-full items-end sm:items-center justify-center p-4 pt-10 sm:p-6 sm:pt-6 pb-[max(1rem,env(safe-area-inset-bottom))] pointer-events-none">
+            <div role="dialog" aria-modal="true" aria-labelledby="modal-whitepaper-title" tabindex="-1" class="pointer-events-auto w-full max-w-2xl max-h-[min(85dvh,640px)] sm:max-h-[min(90dvh,780px)] overflow-y-auto overscroll-contain rounded-t-2xl sm:rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl outline-none flex flex-col">
+                <div class="sticky top-0 z-10 flex justify-end border-b border-slate-800/80 bg-slate-900/95 backdrop-blur px-4 py-3 sm:px-6 sm:py-4 rounded-t-2xl">
+                    <button type="button" id="modal-whitepaper-close" class="inline-flex items-center justify-center rounded-lg border border-slate-700 px-3 py-2 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        Close
+                    </button>
+                </div>
+                <div class="px-5 py-5 sm:px-8 sm:py-6 flex-1">
+                    <h2 id="modal-whitepaper-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-6 pr-2">AnonifyDB Technical Architecture</h2>
+                    <div class="space-y-5">
+                        <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4 sm:p-5">
+                            <h3 class="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-2">Low-Latency Proxy</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed">Built on high-performance streams to ensure &lt;2ms overhead.</p>
+                        </div>
+                        <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4 sm:p-5">
+                            <h3 class="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-2">Deterministic Masking</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed">Uses context-aware hashing and encryption to maintain data referential integrity (Joins still work!).</p>
+                        </div>
+                        <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4 sm:p-5">
+                            <h3 class="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-2">Azure Sovereignty</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed">Deployed as a Managed App. We manage the updates, you own the infrastructure and the data.</p>
+                        </div>
+                        <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4 sm:p-5">
+                            <h3 class="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-2">Audit Trails</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed">SIEM-ready logs for every data access attempt.</p>
+                        </div>
+                    </div>
+                    <p class="mt-6 pt-5 border-t border-slate-800 text-center text-xs text-slate-600">Built for engineers. Trusted by the CISO.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="py-12 border-t border-slate-900 text-center text-slate-600 text-sm">
         <p>© 2026 AnonifyDB. Built for engineers. Trusted by the CISO.</p>
     </footer>
@@ -315,18 +388,50 @@
             var backdrop = document.getElementById('mobile-menu-backdrop');
             var navLinks = document.querySelectorAll('.mobile-nav-link');
 
+            var modalUseCases = document.getElementById('modal-use-cases');
+            var modalWhitepaper = document.getElementById('modal-whitepaper');
+            var modalUseCasesBackdrop = document.getElementById('modal-use-cases-backdrop');
+            var modalWhitepaperBackdrop = document.getElementById('modal-whitepaper-backdrop');
+            var btnUseCases = document.getElementById('btn-modal-use-cases');
+            var btnWhitepaper = document.getElementById('btn-modal-whitepaper');
+
+            function syncBodyScrollLock() {
+                var menuOpen = menuRoot && !menuRoot.classList.contains('hidden');
+                var useCasesOpen = modalUseCases && !modalUseCases.classList.contains('hidden');
+                var whitepaperOpen = modalWhitepaper && !modalWhitepaper.classList.contains('hidden');
+                if (menuOpen || useCasesOpen || whitepaperOpen) {
+                    document.body.classList.add('overflow-hidden', 'overflow-modal-lock');
+                } else {
+                    document.body.classList.remove('overflow-hidden', 'overflow-modal-lock');
+                }
+            }
+
             function openMenu() {
                 menuRoot.classList.remove('hidden');
                 menuRoot.setAttribute('aria-hidden', 'false');
                 menuBtn.setAttribute('aria-expanded', 'true');
-                document.body.classList.add('overflow-hidden');
+                syncBodyScrollLock();
             }
 
             function closeMenu() {
                 menuRoot.classList.add('hidden');
                 menuRoot.setAttribute('aria-hidden', 'true');
                 menuBtn.setAttribute('aria-expanded', 'false');
-                document.body.classList.remove('overflow-hidden');
+                syncBodyScrollLock();
+            }
+
+            function openModal(el) {
+                el.classList.remove('hidden');
+                el.setAttribute('aria-hidden', 'false');
+                syncBodyScrollLock();
+                var panel = el.querySelector('[role="dialog"]');
+                if (panel) panel.focus();
+            }
+
+            function closeModal(el) {
+                el.classList.add('hidden');
+                el.setAttribute('aria-hidden', 'true');
+                syncBodyScrollLock();
             }
 
             menuBtn.addEventListener('click', function () {
@@ -339,8 +444,38 @@
                 a.addEventListener('click', closeMenu);
             });
 
+            btnUseCases.addEventListener('click', function () {
+                openModal(modalUseCases);
+            });
+            btnWhitepaper.addEventListener('click', function () {
+                openModal(modalWhitepaper);
+            });
+
+            document.getElementById('modal-use-cases-close').addEventListener('click', function () {
+                closeModal(modalUseCases);
+            });
+            document.getElementById('modal-whitepaper-close').addEventListener('click', function () {
+                closeModal(modalWhitepaper);
+            });
+
+            modalUseCasesBackdrop.addEventListener('click', function () {
+                closeModal(modalUseCases);
+            });
+            modalWhitepaperBackdrop.addEventListener('click', function () {
+                closeModal(modalWhitepaper);
+            });
+
             document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && !menuRoot.classList.contains('hidden')) closeMenu();
+                if (e.key !== 'Escape') return;
+                if (modalWhitepaper && !modalWhitepaper.classList.contains('hidden')) {
+                    closeModal(modalWhitepaper);
+                    return;
+                }
+                if (modalUseCases && !modalUseCases.classList.contains('hidden')) {
+                    closeModal(modalUseCases);
+                    return;
+                }
+                if (menuRoot && !menuRoot.classList.contains('hidden')) closeMenu();
             });
         })();
     </script>
