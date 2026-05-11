@@ -44,6 +44,15 @@
                 0 8px 36px rgba(56, 189, 248, 0.38),
                 0 0 64px rgba(129, 140, 248, 0.2);
         }
+        /* Mini schema diagrams: dual-layer privacy comparison */
+        .privacy-diagram {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 10px;
+            line-height: 1.35;
+        }
+        @media (min-width: 640px) {
+            .privacy-diagram { font-size: 11px; }
+        }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -53,6 +62,10 @@
             <div class="hidden md:flex flex-wrap justify-end gap-x-5 lg:gap-x-8 gap-y-2 text-sm font-medium text-slate-400 max-w-[min(100%,36rem)] lg:max-w-none">
                 <a href="#why-we-built" class="hover:text-white transition whitespace-nowrap">Why we built</a>
                 <a href="#solution" class="hover:text-white transition">Solution</a>
+                <a href="#capabilities" class="hover:text-white transition whitespace-nowrap">Capabilities</a>
+                <a href="#developer-experience" class="hover:text-white transition whitespace-nowrap">Developers</a>
+                <a href="#security-modes" class="hover:text-white transition whitespace-nowrap">Privacy modes</a>
+                <a href="#killer-features" class="hover:text-white transition whitespace-nowrap">Enterprise</a>
                 <a href="#how-it-works" class="hover:text-white transition whitespace-nowrap">How it works</a>
                 <a href="#industries" class="hover:text-white transition">Industries</a>
                 <a href="#compliance" class="hover:text-white transition">Compliance</a>
@@ -75,6 +88,10 @@
                 <nav class="flex flex-col gap-6 text-lg font-medium text-slate-300" aria-label="Mobile">
                     <a href="#why-we-built" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Why we built</a>
                     <a href="#solution" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Solution</a>
+                    <a href="#capabilities" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Capabilities</a>
+                    <a href="#developer-experience" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Developers</a>
+                    <a href="#security-modes" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Privacy modes</a>
+                    <a href="#killer-features" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Enterprise</a>
                     <a href="#how-it-works" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">How it works</a>
                     <a href="#industries" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Industries</a>
                     <a href="#compliance" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Compliance</a>
@@ -87,10 +104,10 @@
                 Safe Data. <span class="accent-text">Faster Innovation.</span>
             </h1>
             <p class="text-lg sm:text-xl md:text-2xl text-slate-300 font-semibold max-w-3xl mx-auto mb-6 sm:mb-8 leading-snug text-balance">
-                Our Ninja has no face. Neither will your <span class="text-white">sensitive data</span>.
+                Ninja has no face. Neither will your <span class="text-white">sensitive data</span>.
             </p>
             <p class="text-base sm:text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 sm:mb-12 leading-relaxed px-1">
-                Automated, enterprise-grade data anonymization for PostgreSQL, Oracle, and SQL Server. Built for Azure by experts from the banking and insurance sectors.
+                Enterprise-grade anonymization for PostgreSQL, Oracle, and SQL Server on Azure—engineered for <strong class="text-slate-200 font-semibold">finance, banking, and insurance</strong> teams across the <strong class="text-slate-200 font-semibold">DACH region</strong>. GDPR-aligned controls that hold up under supervisory review.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto w-full">
                 <button type="button" id="btn-modal-use-cases" class="w-full sm:w-auto bg-white text-black px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]">View Use Cases</button>
@@ -123,7 +140,7 @@
 
     <section id="solution" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
         <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">The Solution</h2>
-        <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12 md:mb-14 text-sm md:text-base leading-relaxed">Automated anonymization at the boundary—three engineering pillars for regulated Azure estates, multi-source workloads, and AI throughput.</p>
+        <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12 md:mb-14 text-sm md:text-base leading-relaxed">Dual operating modes, surgical or full-database masking, and one-click provisioning—built for regulated Azure estates, AI-assisted workloads, and audit-ready evidence in banking and insurance.</p>
 
         <div class="grid md:grid-cols-3 gap-8 md:gap-10">
             <article class="rounded-3xl border border-slate-800 bg-slate-900/50 p-8 flex flex-col min-h-0 ring-1 ring-inset ring-slate-700/15">
@@ -150,7 +167,7 @@
             </article>
         </div>
 
-        <div class="max-w-5xl mx-auto mt-14 md:mt-16 rounded-lg border border-sky-500/25 bg-slate-950 shadow-[0_0_48px_-14px_rgba(56,189,248,0.2)] ring-1 ring-sky-400/15 overflow-hidden" aria-label="Supporting technical specifications">
+        <div id="capabilities" class="max-w-5xl mx-auto mt-14 md:mt-16 scroll-mt-24 rounded-lg border border-sky-500/25 bg-slate-950 shadow-[0_0_48px_-14px_rgba(56,189,248,0.2)] ring-1 ring-sky-400/15 overflow-hidden" aria-label="Features and technical specifications">
             <div class="flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-slate-800 bg-slate-900/95 px-4 py-2.5 font-mono text-[10px] sm:text-[11px]">
                 <span class="flex gap-1.5 shrink-0" aria-hidden="true">
                     <span class="h-2 w-2 rounded-full bg-red-500/75"></span>
@@ -159,17 +176,74 @@
                 </span>
                 <span class="text-sky-400/95 tracking-tight">tech_specs.ts</span>
                 <span class="text-slate-600 hidden sm:inline">—</span>
-                <span class="text-slate-500 tracking-tight hidden sm:inline break-all sm:break-words">throughput · referential_integrity · tenant_scope=customer</span>
+                <span class="text-slate-500 tracking-tight hidden sm:inline break-all sm:break-words">proxy · at_rest · api_first · granularity · deploy_pipeline · tenant_scope=customer</span>
             </div>
             <div class="relative px-5 py-6 md:px-8 md:py-8 border-t border-sky-500/10">
                 <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(transparent_0px,rgba(15,23,42,0.4)_1px,transparent_2px)] bg-[length:100%_3px] opacity-40" aria-hidden="true"></div>
-                <div class="relative space-y-5">
-                    <p class="text-sm md:text-base text-slate-300 leading-relaxed">PII is the hidden tax on migrations and model work. Frozen, pattern-faithful copies remove that drag—while <strong class="text-white">referential integrity</strong> keeps joins honest for evaluation and training.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 border-t border-slate-800 pt-5 font-mono text-xs sm:text-sm">
+                <div class="relative space-y-8">
+                    <div>
+                        <h3 class="text-lg md:text-xl font-bold text-white mb-2">Features &amp; technical specifications</h3>
+                        <p class="text-sm md:text-base text-slate-300 leading-relaxed">Production-aligned masking for supervisory environments: <strong class="text-white">dual operating mode</strong> (proxy vs. at-rest), <strong class="text-white">programmatic delivery</strong> via API for agents and CI/CD, and <strong class="text-white">one-click deployment</strong> into isolated targets—without sacrificing join fidelity or audit evidence.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
+                        <article class="rounded-xl border border-slate-700/80 bg-slate-900/80 p-5 md:p-6 flex flex-col gap-4 ring-1 ring-inset ring-slate-700/10">
+                            <div class="flex items-start gap-3">
+                                <span class="text-sky-400 shrink-0 mt-0.5" aria-hidden="true"><i data-lucide="git-branch" class="w-8 h-8"></i></span>
+                                <div class="min-w-0">
+                                    <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">Pillar 01</p>
+                                    <h4 class="text-base md:text-lg font-bold text-white leading-snug">Dual operating mode</h4>
+                                    <p class="text-xs text-slate-500 mt-1 font-medium">Proxy vs. at-rest</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 text-sm text-slate-400 leading-relaxed flex-1">
+                                <div class="rounded-lg border border-slate-800/90 bg-slate-950/40 px-3 py-3">
+                                    <p class="text-[11px] font-bold uppercase tracking-wider text-sky-400/90 mb-1.5">ADB proxy (in-transit)</p>
+                                    <p><strong class="text-slate-200">Real-time anonymization</strong> as data moves from the database to applications, APIs, or AI agents—sensitive values never reach downstream consumers in the clear.</p>
+                                </div>
+                                <div class="rounded-lg border border-slate-800/90 bg-slate-950/40 px-3 py-3">
+                                    <p class="text-[11px] font-bold uppercase tracking-wider text-sky-400/90 mb-1.5">At-rest anonymization</p>
+                                    <p><strong class="text-slate-200">Permanent masking</strong> for dormant databases and bulk copies—ideal for <strong class="text-slate-200">structural twin</strong> environments where development teams need faithful schemas without production identifiers.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="rounded-xl border border-slate-700/80 bg-slate-900/80 p-5 md:p-6 flex flex-col gap-4 ring-1 ring-inset ring-slate-700/10">
+                            <div class="flex items-start gap-3">
+                                <span class="text-sky-400 shrink-0 mt-0.5" aria-hidden="true"><i data-lucide="layout-grid" class="w-8 h-8"></i></span>
+                                <div class="min-w-0">
+                                    <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">Pillar 02</p>
+                                    <h4 class="text-base md:text-lg font-bold text-white leading-snug">Anonymization granularity</h4>
+                                    <p class="text-xs text-slate-500 mt-1 font-medium">Partial vs. full database</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 text-sm text-slate-400 leading-relaxed flex-1">
+                                <div class="rounded-lg border border-slate-800/90 bg-slate-950/40 px-3 py-3">
+                                    <p class="text-[11px] font-bold uppercase tracking-wider text-sky-400/90 mb-1.5">Partial control</p>
+                                    <p>Select <strong class="text-slate-200">specific tables or columns</strong>—for example email, IBAN, or national identifiers—while leaving analytical dimensions untouched for targeted minimization.</p>
+                                </div>
+                                <div class="rounded-lg border border-slate-800/90 bg-slate-950/40 px-3 py-3">
+                                    <p class="text-[11px] font-bold uppercase tracking-wider text-sky-400/90 mb-1.5">Full database masking</p>
+                                    <p><strong class="text-slate-200">Complete anonymization</strong> of the estate with <strong class="text-slate-200">referential integrity preserved</strong>: the same logical ID maps to the same pseudonym across every table, so joins and lineage remain trustworthy.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="rounded-xl border border-sky-500/20 bg-slate-950/70 p-5 md:p-6 flex flex-col gap-4 shadow-[0_0_32px_-12px_rgba(56,189,248,0.18)] ring-1 ring-sky-500/10">
+                            <div class="flex items-start gap-3">
+                                <span class="text-sky-400 shrink-0 mt-0.5 text-2xl leading-none" aria-hidden="true">🚀</span>
+                                <div class="min-w-0">
+                                    <p class="text-[11px] font-semibold uppercase tracking-wider text-sky-500/80 mb-1">Pillar 03</p>
+                                    <h4 class="text-base md:text-lg font-bold text-white leading-snug">Deploy anonymized instance</h4>
+                                    <p class="text-xs text-slate-500 mt-1 font-medium">One-click scalability &amp; UX</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-400 leading-relaxed"><strong class="text-slate-200">Single action</strong> kicks off the governed pipeline: <strong class="text-white font-mono text-xs sm:text-sm">Scan → Plan → Execute</strong>. The platform provisions a fresh database or schema—such as an <strong class="text-slate-200">Azure SQL</strong> instance—and <strong class="text-slate-200">loads anonymized data</strong> directly into your non-production target so testers and AI sandboxes stay isolated from production.</p>
+                            <p class="text-xs text-slate-500 leading-relaxed border-t border-slate-800/80 pt-3 mt-auto">Operational ergonomics for large estates: fewer runbooks, fewer hand-offs, reproducible drops for every sprint or model experiment.</p>
+                        </article>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 border-t border-slate-800 pt-6 font-mono text-xs sm:text-sm">
                         <div class="rounded-md border border-slate-700/80 bg-slate-900/80 px-3 py-3">
                             <span class="text-slate-500 uppercase tracking-wider text-[10px]">velocity</span>
                             <p class="mt-1 text-sky-300 leading-snug"><strong class="text-white font-bold">5× faster</strong> <span class="text-slate-500 block sm:inline">engineering cycles</span></p>
-                            <p class="text-[11px] text-slate-600 mt-2 leading-snug">Versus synthetic-only or blocked production paths.</p>
+                            <p class="text-[11px] text-slate-600 mt-2 leading-snug">Versus synthetic-only data or blocked production paths.</p>
                         </div>
                         <div class="rounded-md border border-slate-700/80 bg-slate-900/80 px-3 py-3">
                             <span class="text-slate-500 uppercase tracking-wider text-[10px]">referential_integrity</span>
@@ -187,6 +261,207 @@
         </div>
 
         <p class="mt-10 md:mt-12 text-center text-base md:text-lg font-bold tracking-tight"><span class="accent-text">Full Vision, Zero Risk</span></p>
+    </section>
+
+    <section id="developer-experience" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
+        <p class="text-center text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-3">For lead engineers &amp; platform security</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Developer &amp; AI agent enablement</h2>
+        <p class="text-slate-400 text-center max-w-3xl mx-auto mb-4 text-sm md:text-base leading-relaxed">AnonifyDB functions as a <strong class="text-slate-200 font-semibold">data delivery layer</strong>: provision governed, anonymized databases through contracts your toolchain already understands—without queueing weeks for manual compliance sign-off on every refresh.</p>
+        <p class="text-slate-500 text-center max-w-2xl mx-auto mb-12 md:mb-14 text-xs md:text-sm leading-relaxed">Policy gates remain authoritative; execution becomes repeatable, observable, and safe for autonomous tooling.</p>
+
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8">
+            <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-8 ring-1 ring-inset ring-slate-700/10 flex flex-col">
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-sky-500/10 border border-sky-500/25 text-sky-400" aria-hidden="true"><i data-lucide="webhook" class="w-5 h-5"></i></span>
+                    <div>
+                        <p class="text-[11px] font-semibold uppercase tracking-wider text-sky-500/80">API-first</p>
+                        <h3 class="text-lg font-bold text-white">Single API orchestration</h3>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed flex-1 mb-6">One authenticated request can trigger the full <strong class="text-slate-200">scan → plan → execute</strong> pipeline and return a <strong class="text-slate-200">ready-to-use database endpoint</strong>—aligned with the same policies your CISO approved for batch and proxy paths.</p>
+                <div class="rounded-xl border border-slate-800 bg-[#0f172a] p-4 overflow-x-auto">
+                    <p class="text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-2">Illustrative</p>
+                    <pre class="text-[11px] sm:text-xs text-slate-300 leading-relaxed whitespace-pre"><span class="text-violet-400">POST</span> <span class="text-sky-300">/v1/instances/anonymized</span>
+<span class="text-slate-600">{</span> <span class="text-emerald-400/90">&quot;source&quot;</span><span class="text-slate-600">:</span> <span class="text-amber-200/90">&quot;prod_ledger&quot;</span><span class="text-slate-600">,</span> <span class="text-emerald-400/90">&quot;policy&quot;</span><span class="text-slate-600">:</span> <span class="text-amber-200/90">&quot;dach_qa_v3&quot;</span> <span class="text-slate-600">}</span>
+
+<span class="text-slate-500">→ 201 </span><span class="text-slate-400">{</span> <span class="text-emerald-400/90">&quot;connectionString&quot;</span><span class="text-slate-600">:</span> <span class="text-amber-200/90">&quot;Server=…;Database=qa_tw…&quot;</span> <span class="text-slate-400">}</span></pre>
+                </div>
+            </article>
+            <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-8 ring-1 ring-inset ring-slate-700/10 flex flex-col">
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-500/10 border border-indigo-500/25 text-indigo-400" aria-hidden="true"><i data-lucide="workflow" class="w-5 h-5"></i></span>
+                    <div>
+                        <p class="text-[11px] font-semibold uppercase tracking-wider text-indigo-400/90">Uniform surface</p>
+                        <h3 class="text-lg font-bold text-white">Human or agent, same contract</h3>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed flex-1">Whether the caller is an engineer in a terminal or an <strong class="text-slate-200">AI coding agent</strong> inside an autonomous loop (for example Cursor or GitHub Copilot-driven workflows), the integration surface is identical: request an environment, receive a <strong class="text-slate-200">fresh anonymized connection string</strong> and bounded credentials—no shadow exports.</p>
+                <ul class="mt-6 space-y-3 text-sm text-slate-400 border-t border-slate-800 pt-6">
+                    <li class="flex gap-2"><span class="text-sky-400 shrink-0 mt-0.5" aria-hidden="true"><i data-lucide="check" class="w-4 h-4"></i></span><span>Pairs naturally with <strong class="text-slate-200">GitOps</strong>, ephemeral preview databases, and LLM-assisted refactoring cycles.</span></li>
+                    <li class="flex gap-2"><span class="text-sky-400 shrink-0 mt-0.5" aria-hidden="true"><i data-lucide="check" class="w-4 h-4"></i></span><span>Complements <strong class="text-slate-200">in-transit proxy</strong> and <strong class="text-slate-200">one-click instance deployment</strong> above: APIs orchestrate delivery; modes enforce where masking applies.</span></li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section id="security-modes" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
+        <p class="text-center text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-3">Security architecture</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Dual-layer privacy</h2>
+        <p class="text-slate-400 text-center max-w-3xl mx-auto mb-12 md:mb-14 text-sm md:text-base leading-relaxed">Two masking depths for two threat models—chosen per workload, dataset, or agent trust boundary. <strong class="text-slate-200 font-semibold">Chief Information Security Officers</strong> retain policy ownership; <strong class="text-slate-200 font-semibold">lead engineers</strong> select the mode that matches refactoring vs. third-party AI exposure.</p>
+
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+            <article class="rounded-2xl border border-emerald-900/35 bg-slate-900/40 p-6 md:p-8 flex flex-col ring-1 ring-emerald-500/10">
+                <div class="flex items-start justify-between gap-4 mb-6">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400" aria-hidden="true"><i data-lucide="database" class="w-5 h-5"></i></span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white leading-snug">Data anonymization</h3>
+                            <p class="text-xs text-emerald-400/90 font-semibold uppercase tracking-wider mt-0.5">Standard · schema-stable</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6 flex-1"><strong class="text-slate-200">Table and column names stay recognizable</strong> so ORMs, stored procedures, and migration scripts keep meaning. Cell values are masked or pseudonymized—ideal when teams must <strong class="text-slate-200">refactor business logic</strong> against a truthful relational shape.</p>
+                <div class="rounded-xl border border-emerald-800/40 bg-[#020617]/80 p-4" aria-hidden="true">
+                    <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-500/80 mb-3 flex items-center gap-2"><span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Readable structure · masked values</p>
+                    <div class="privacy-diagram text-slate-300 space-y-2">
+                        <div class="flex items-center gap-2 text-emerald-300/95"><span class="text-slate-600">┌</span><span class="border-b border-emerald-600/50 pb-px">Customers</span><span class="text-slate-600">────────────┐</span></div>
+                        <div><span class="text-slate-600">│</span> <span class="text-slate-500">email</span>        <span class="text-slate-600">│</span> <span class="text-slate-500">iban</span>           <span class="text-slate-600">│</span></div>
+                        <div><span class="text-slate-600">│</span> <span class="text-amber-200/80">***@anon.local</span> <span class="text-slate-600">│</span> <span class="text-amber-200/80">DE**…**9000</span> <span class="text-slate-600">│</span></div>
+                        <div><span class="text-slate-600">└──────────────────┴────────────────┘</span></div>
+                    </div>
+                    <p class="mt-3 text-[10px] text-slate-600 leading-snug font-medium">Domain vocabulary retained · joins &amp; keys behave as in production patterns</p>
+                </div>
+            </article>
+
+            <article class="rounded-2xl border border-violet-900/40 bg-slate-900/40 p-6 md:p-8 flex flex-col ring-1 ring-violet-500/15">
+                <div class="flex items-start justify-between gap-4 mb-6">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-violet-500/10 border border-violet-500/35 text-violet-400" aria-hidden="true"><i data-lucide="eye-off" class="w-5 h-5"></i></span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white leading-snug">Structural anonymization</h3>
+                            <p class="text-xs text-violet-300/90 font-semibold uppercase tracking-wider mt-0.5">Paranoid · agent-safe</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6 flex-1">For <strong class="text-slate-200">external or opaque AI agents</strong>, obfuscate identifiers at both layers: payload <em>and</em> metadata. Table <code class="text-violet-300/95 bg-violet-950/40 px-1 rounded text-[13px]">Customers</code> becomes <code class="text-violet-300/95 bg-violet-950/40 px-1 rounded text-[13px]">Entity_A</code>; column <code class="text-violet-300/95 bg-violet-950/40 px-1 rounded text-[13px]">Email</code> becomes <code class="text-violet-300/95 bg-violet-950/40 px-1 rounded text-[13px]">Attr_1</code>—so the model gains <strong class="text-slate-200">no recoverable map</strong> to your business domain.</p>
+                <div class="rounded-xl border border-violet-800/45 bg-[#020617]/80 p-4" aria-hidden="true">
+                    <p class="text-[10px] font-bold uppercase tracking-wider text-violet-400/90 mb-3 flex items-center gap-2"><span class="inline-block h-1.5 w-1.5 rounded-full bg-violet-400"></span> Obfuscated structure · masked values</p>
+                    <div class="privacy-diagram text-slate-300 space-y-2">
+                        <div class="flex items-center gap-2 text-violet-300/95"><span class="text-slate-600">┌</span><span class="border-b border-violet-600/50 pb-px">Entity_A</span><span class="text-slate-600">─────────────┐</span></div>
+                        <div><span class="text-slate-600">│</span> <span class="text-violet-400/90">Attr_1</span>       <span class="text-slate-600">│</span> <span class="text-violet-400/90">Attr_2</span>          <span class="text-slate-600">│</span></div>
+                        <div><span class="text-slate-600">│</span> <span class="text-amber-200/80">***@anon.local</span> <span class="text-slate-600">│</span> <span class="text-amber-200/80">DE**…**9000</span> <span class="text-slate-600">│</span></div>
+                        <div><span class="text-slate-600">└──────────────────┴────────────────┘</span></div>
+                    </div>
+                    <div class="mt-4 flex flex-wrap items-center gap-2 text-[10px] text-slate-500">
+                        <span class="rounded border border-slate-700 bg-slate-950 px-2 py-1 font-mono text-slate-400">Customers</span>
+                        <span class="text-slate-600" aria-hidden="true">→</span>
+                        <span class="rounded border border-violet-800/60 bg-violet-950/30 px-2 py-1 font-mono text-violet-300">Entity_A</span>
+                        <span class="text-slate-600 hidden sm:inline">·</span>
+                        <span class="rounded border border-slate-700 bg-slate-950 px-2 py-1 font-mono text-slate-400">Email</span>
+                        <span class="text-slate-600" aria-hidden="true">→</span>
+                        <span class="rounded border border-violet-800/60 bg-violet-950/30 px-2 py-1 font-mono text-violet-300">Attr_1</span>
+                    </div>
+                    <p class="mt-3 text-[10px] text-slate-600 leading-snug font-medium">Mapping exists only inside your vault—not in agent context windows or vendor logs</p>
+                </div>
+            </article>
+        </div>
+
+        <p class="max-w-3xl mx-auto mt-10 md:mt-12 text-center text-xs md:text-sm text-slate-500 leading-relaxed">Use standard mode for internal engineering fidelity; escalate to structural mode when tooling crosses trust zones or when regulators expect proof that <strong class="text-slate-400 font-semibold">domain semantics never left your boundary</strong>.</p>
+    </section>
+
+    <section id="killer-features" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
+        <p class="text-center text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-3">Enterprise · supervisory-grade controls</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Killer features for compliance velocity</h2>
+        <p class="text-slate-400 text-center max-w-3xl mx-auto mb-12 md:mb-14 text-sm md:text-base leading-relaxed">Ship at FinTech cadence without outrunning legal: cryptographic evidence, incremental synchronization, live egress enforcement, and ephemeral compute—each tuned so <strong class="text-slate-200 font-semibold">engineering throughput</strong> and <strong class="text-slate-200 font-semibold">regulatory defensibility</strong> rise together.</p>
+
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+            <article class="rounded-2xl border border-slate-800 bg-slate-900/55 p-6 md:p-7 flex flex-col ring-1 ring-inset ring-slate-700/10">
+                <div class="flex items-start gap-4 mb-5">
+                    <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400" aria-hidden="true"><i data-lucide="shield-check" class="w-6 h-6"></i></span>
+                    <div class="min-w-0">
+                        <p class="text-[11px] font-semibold uppercase tracking-wider text-teal-400/90 mb-1">Compliance certification</p>
+                        <h3 class="text-lg font-bold text-white leading-snug">The Auditor&rsquo;s Ledger</h3>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed flex-1">Every anonymization run yields <strong class="text-slate-200">auto-generated, digitally signed compliance certificates</strong>—delivered as <strong class="text-slate-200">PDF artifacts bound to a cryptographic hash</strong>—so integrity and provenance are trivially verifiable.</p>
+                <p class="text-sm text-slate-400 leading-relaxed mt-4">The embedded ledger records <strong class="text-slate-200">exactly which transformations executed</strong>—for example <strong class="text-slate-300 font-medium">synthetic replacement</strong>, <strong class="text-slate-300 font-medium">salted hashing</strong>, truncation, or tokenization—column by column, policy version by policy version.</p>
+                <p class="mt-5 pt-5 border-t border-slate-800 text-xs text-slate-500 leading-relaxed"><strong class="text-slate-400 font-semibold">Why it matters:</strong> Converts &ldquo;how do we trust this masking run?&rdquo; into an artifact General Counsel, DPOs, and external auditors can file—without commissioning a forensic exercise after the fact.</p>
+            </article>
+
+            <article class="rounded-2xl border border-slate-800 bg-slate-900/55 p-6 md:p-7 flex flex-col ring-1 ring-inset ring-slate-700/10">
+                <div class="flex items-start gap-4 mb-5">
+                    <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 border border-amber-500/35 text-amber-400" aria-hidden="true"><i data-lucide="gauge" class="w-6 h-6"></i></span>
+                    <div class="min-w-0">
+                        <p class="text-[11px] font-semibold uppercase tracking-wider text-amber-400/90 mb-1">Performance &amp; cloud economics</p>
+                        <h3 class="text-lg font-bold text-white leading-snug">Smart Delta Refresh</h3>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed flex-1"><strong class="text-slate-200">Intelligent incremental masking</strong> fingerprints production churn and applies transformations only to <strong class="text-slate-200">new or modified rows</strong>, then reconciles downstream dev and test targets—no wholesale table rewipes when a slice of the ledger moved.</p>
+                <p class="text-sm text-slate-400 leading-relaxed mt-4">Purpose-built for hyperscale estates on <strong class="text-slate-200">Azure</strong> (and analogous footprints): fewer vCore-hours, leaner storage churn, and materially shorter pipeline windows versus naive full re-anonymization.</p>
+                <p class="mt-5 pt-5 border-t border-slate-800 text-xs text-slate-500 leading-relaxed"><strong class="text-slate-400 font-semibold">Why it matters:</strong> Keeps <strong class="text-slate-400">CI/CD loops fast</strong> and <strong class="text-slate-400">FinOps predictable</strong> when databases measure in terabytes—without relaxing the minimization bar.</p>
+            </article>
+
+            <article class="rounded-2xl border border-slate-800 bg-slate-900/55 p-6 md:p-7 flex flex-col ring-1 ring-inset ring-slate-700/10">
+                <div class="flex items-start gap-4 mb-5">
+                    <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-rose-500/10 border border-rose-500/35 text-rose-400" aria-hidden="true"><i data-lucide="scan-search" class="w-6 h-6"></i></span>
+                    <div class="min-w-0">
+                        <p class="text-[11px] font-semibold uppercase tracking-wider text-rose-400/90 mb-1">Egress enforcement</p>
+                        <h3 class="text-lg font-bold text-white leading-snug">PII &lsquo;Canary&rsquo; Detector</h3>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed flex-1">An active control plane watches <strong class="text-slate-200">data exiting toward third-party AI endpoints</strong>—public LLM APIs, hosted copilots, or opaque agent runtimes—and continuously scores payloads against high-precision patterns.</p>
+                <p class="text-sm text-slate-400 leading-relaxed mt-4">If residual structures resemble <strong class="text-slate-200">IBANs</strong>, person names, government IDs, or mailbox addresses that slipped past upstream masking, the canary <strong class="text-slate-200">blocks or redacts the egress in real time</strong>—fail-closed before tokens reach an external inference tier.</p>
+                <p class="mt-5 pt-5 border-t border-slate-800 text-xs text-slate-500 leading-relaxed"><strong class="text-slate-400 font-semibold">Why it matters:</strong> Closes the last-mile gap where automation misconfiguration or emergent prompt injection could otherwise defeat weeks of governance design.</p>
+            </article>
+        </div>
+
+        <div class="max-w-6xl mx-auto relative rounded-3xl overflow-hidden border-2 border-cyan-500/45 bg-gradient-to-br from-slate-950 via-cyan-950/40 to-indigo-950 shadow-[0_0_64px_-12px_rgba(34,211,238,0.35),inset_0_1px_0_0_rgba(255,255,255,0.06)] ring-1 ring-cyan-400/20">
+            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(34,211,238,0.18),transparent_55%)]" aria-hidden="true"></div>
+            <div class="relative px-6 py-10 md:px-10 md:py-12 lg:px-14 lg:py-14">
+                <div class="flex flex-wrap items-center gap-3 mb-6">
+                    <span class="inline-flex items-center rounded-full border border-cyan-400/50 bg-cyan-500/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-cyan-200">New</span>
+                    <span class="inline-flex items-center rounded-full border border-indigo-400/40 bg-indigo-500/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-indigo-200">Beta</span>
+                    <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 hidden sm:inline">Innovation spotlight</span>
+                </div>
+                <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-12">
+                    <div class="max-w-2xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-500/15 border border-cyan-400/40 text-cyan-300" aria-hidden="true"><i data-lucide="cloud-off" class="w-6 h-6"></i></span>
+                            <h3 class="text-2xl md:text-3xl lg:text-[1.75rem] font-extrabold tracking-tight text-white leading-tight">Ghost environments</h3>
+                        </div>
+                        <p class="text-xl md:text-2xl font-bold text-cyan-100/95 leading-snug mb-6">&ldquo;One API call, zero trace, total compliance.&rdquo;</p>
+                        <p class="text-sm md:text-base text-slate-300 leading-relaxed mb-5">Developers and autonomous agents never touch a durable connection string. Instead they receive ephemeral access to a <strong class="text-white">Ghost database</strong>: an <strong class="text-white">in-memory instance</strong> spun on demand inside your perimeter, fed only by governed masking pipelines.</p>
+                        <p class="text-sm md:text-base text-slate-400 leading-relaxed">When the session terminates, working sets evaporate—<strong class="text-slate-300">no residual pages</strong>, <strong class="text-slate-300">no orphaned replicas</strong>—preserving data-subject minimization narratives regulators actually accept.</p>
+                    </div>
+                    <div class="w-full lg:max-w-md shrink-0 rounded-2xl border border-cyan-500/25 bg-black/35 backdrop-blur-sm p-5 md:p-6">
+                        <p class="text-[11px] font-bold uppercase tracking-wider text-cyan-400/90 mb-4">Workflow</p>
+                        <ol class="space-y-4 text-sm text-slate-300">
+                            <li class="flex gap-3">
+                                <span class="font-mono text-cyan-400 shrink-0 font-bold">1</span>
+                                <div>
+                                    <p class="font-semibold text-white mb-1"><span class="text-emerald-400 font-mono text-xs sm:text-sm">GET</span> <span class="font-mono text-xs sm:text-sm text-slate-200 break-all">/ghost-db/request</span></p>
+                                    <p class="text-slate-500 text-xs leading-relaxed">Authenticated lease describing scope, TTL, and policy bundle.</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="font-mono text-cyan-400 shrink-0 font-bold">2</span>
+                                <div>
+                                    <p class="font-semibold text-white mb-1">Ephemeral instance online</p>
+                                    <p class="text-slate-500 text-xs leading-relaxed">In-memory engine materializes masked projections for the session—no persistent SKU billed as permanent inventory.</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="font-mono text-cyan-400 shrink-0 font-bold">3</span>
+                                <div>
+                                    <p class="font-semibold text-white mb-1">Session ends → footprint erased</p>
+                                    <p class="text-slate-500 text-xs leading-relaxed">Lease expiry or explicit teardown destroys buffers and credentials; only Auditor&rsquo;s Ledger hashes remain for supervisory replay.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="how-it-works" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
@@ -231,38 +506,43 @@
     </section>
 
     <section id="industries" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Target industries</h2>
-        <p class="text-slate-400 text-center max-w-2xl mx-auto mb-10 md:mb-12 text-sm md:text-base">Teams under supervisory scrutiny—where anonymization is not a slide deck, but a release gate.</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Built for DACH finance</h2>
+        <p class="text-slate-400 text-center max-w-2xl mx-auto mb-10 md:mb-12 text-sm md:text-base leading-relaxed"><strong class="text-slate-200 font-semibold">Finance, banking, and insurance</strong> in Germany, Austria, and Switzerland—where BaFin, FMA, and FINMA-aligned scrutiny makes anonymization a board-level control, not an engineering nicety.</p>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
             <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 text-center flex flex-col items-center gap-3 hover:border-slate-700 transition">
                 <span class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-slate-950 border border-slate-800 text-blue-400" aria-hidden="true"><i data-lucide="landmark" class="w-8 h-8"></i></span>
                 <h3 class="text-base font-bold text-white">Banking</h3>
-                <p class="text-xs text-slate-500 leading-snug">Core systems &amp; analytics sandboxes</p>
+                <p class="text-xs text-slate-500 leading-snug">Core banking, payments &amp; risk analytics</p>
             </div>
             <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 text-center flex flex-col items-center gap-3 hover:border-slate-700 transition">
                 <span class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-slate-950 border border-slate-800 text-blue-400" aria-hidden="true"><i data-lucide="shield" class="w-8 h-8"></i></span>
                 <h3 class="text-base font-bold text-white">Insurance</h3>
-                <p class="text-xs text-slate-500 leading-snug">Actuarial &amp; claims intelligence</p>
+                <p class="text-xs text-slate-500 leading-snug">Life, P&amp;C, reinsurance &amp; fraud models</p>
             </div>
             <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 text-center flex flex-col items-center gap-3 hover:border-slate-700 transition">
-                <span class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-slate-950 border border-slate-800 text-blue-400" aria-hidden="true"><i data-lucide="home" class="w-8 h-8"></i></span>
-                <h3 class="text-base font-bold text-white">Real estate</h3>
-                <p class="text-xs text-slate-500 leading-snug">Portfolio &amp; tenant analytics</p>
+                <span class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-slate-950 border border-slate-800 text-blue-400" aria-hidden="true"><i data-lucide="building-2" class="w-8 h-8"></i></span>
+                <h3 class="text-base font-bold text-white">Finance &amp; markets</h3>
+                <p class="text-xs text-slate-500 leading-snug">Asset managers, FMIs &amp; capital markets tech</p>
             </div>
             <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 text-center flex flex-col items-center gap-3 hover:border-slate-700 transition">
-                <span class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-slate-950 border border-slate-800 text-blue-400" aria-hidden="true"><i data-lucide="car" class="w-8 h-8"></i></span>
-                <h3 class="text-base font-bold text-white">Auto industry</h3>
-                <p class="text-xs text-slate-500 leading-snug">Supply chain &amp; connected telemetry</p>
+                <span class="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-slate-950 border border-slate-800 text-blue-400" aria-hidden="true"><i data-lucide="scale" class="w-8 h-8"></i></span>
+                <h3 class="text-base font-bold text-white">Compliance-led IT</h3>
+                <p class="text-xs text-slate-500 leading-snug">Legal, audit &amp; outsourcing governance</p>
             </div>
         </div>
     </section>
 
     <section id="compliance" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
         <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-4">Compliance</h2>
-        <p class="text-slate-400 text-center max-w-2xl mx-auto mb-8 text-sm md:text-base">Raw production identifiers in LLM context or AI test benches collide with purpose limitation and minimization—regulators treat &ldquo;it was just an experiment&rdquo; as a weak defense.</p>
+        <p class="text-slate-400 text-center max-w-2xl mx-auto mb-6 text-sm md:text-base leading-relaxed"><strong class="text-slate-200 font-semibold">GDPR sovereignty</strong> means data stays within your governed boundary, processed under documented purpose and minimization—not repatriated through opaque AI prompts or shared inference tiers.</p>
+        <p class="text-slate-400 text-center max-w-2xl mx-auto mb-8 text-sm md:text-base leading-relaxed">Raw production identifiers in LLM context or autonomous agents collide with Articles 5 and 25 obligations; supervisors treat &ldquo;pilot exceptions&rdquo; as institutional risk.</p>
+        <div class="max-w-3xl mx-auto mb-6 rounded-xl border border-violet-900/40 bg-violet-950/20 px-4 py-4 sm:px-5 sm:py-4 flex gap-3 sm:gap-4" role="note">
+            <span class="text-violet-400/90 shrink-0 mt-0.5" aria-hidden="true"><i data-lucide="shield-alert" class="w-5 h-5"></i></span>
+            <p class="text-sm text-slate-300 leading-relaxed text-left"><strong class="text-slate-200 font-semibold">Against &lsquo;BodySnatcher&rsquo; AI exposure:</strong> Copilots and agents that read live database streams can memorize or leak verbatim identifiers. Proxy-side and at-rest masking closes that aperture—models and scripts operate on <strong class="text-slate-200 font-semibold">pseudonymous structural twins</strong>, not exfiltratable identities.</p>
+        </div>
         <div class="max-w-3xl mx-auto mb-10 rounded-xl border border-amber-900/35 bg-amber-950/15 px-4 py-4 sm:px-5 sm:py-4 flex gap-3 sm:gap-4" role="note">
             <span class="text-amber-500/90 shrink-0 mt-0.5" aria-hidden="true"><i data-lucide="alert-triangle" class="w-5 h-5"></i></span>
-            <p class="text-sm text-slate-300 leading-relaxed text-left"><strong class="text-slate-200 font-semibold">Legal risk:</strong> Using raw production data for AI testing or LLM context is a high-risk GDPR violation. AnonifyDB transforms this liability into an asset.</p>
+            <p class="text-sm text-slate-300 leading-relaxed text-left"><strong class="text-slate-200 font-semibold">Legal risk:</strong> Using raw production data for AI testing or LLM context is a high-risk GDPR violation. AnonifyDB converts that liability into reproducible, auditor-friendly controls.</p>
         </div>
         <details class="section-expand max-w-3xl mx-auto mb-14 rounded-2xl border border-slate-800 bg-slate-900/40 overflow-hidden transition-colors hover:border-slate-700/90">
             <summary class="cursor-pointer select-none flex items-center justify-between gap-4 px-5 py-4 text-left text-sm font-medium text-slate-300 hover:text-white transition">
@@ -287,8 +567,8 @@
         <div class="grid md:grid-cols-3 gap-8 md:gap-12">
             <div class="p-8 rounded-3xl bg-slate-900/50 border border-slate-800 flex flex-col min-h-0">
                 <div class="text-blue-400 mb-4"><i data-lucide="landmark" class="w-9 h-9" aria-hidden="true"></i></div>
-                <h3 class="text-xl font-bold mb-4">GDPR Sovereignty</h3>
-                <p class="text-slate-400 text-sm flex-1">Data minimization, purpose limitation, and residency-aware processing designed around EU regulatory interpretation—not checkbox PDFs.</p>
+                <h3 class="text-xl font-bold mb-4">GDPR sovereignty</h3>
+                <p class="text-slate-400 text-sm flex-1">Minimization, purpose limitation, and residency-aware processing anchored in EU and DACH supervisory expectations—with evidence that survives DPIA and outsourcing reviews.</p>
                 <details class="section-expand mt-6 rounded-xl border border-slate-800/90 bg-slate-950/30 overflow-hidden">
                     <summary class="cursor-pointer px-3 py-2.5 text-xs font-medium text-slate-500 hover:text-slate-300 transition flex items-center justify-between gap-2">
                         <span>Learn more</span>
