@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,21 +53,38 @@
         @media (min-width: 640px) {
             .privacy-diagram { font-size: 11px; }
         }
-        /* Single-line headlines & nav: nowrap + horizontal scroll fallback on narrow viewports */
+        /* Headlines: wrap + smaller type on mobile; single-line scroll on large screens */
         .headline-no-wrap-row {
             display: flex;
             justify-content: center;
-            overflow-x: auto;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: visible;
+            overflow-y: visible;
             overscroll-behavior-x: contain;
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
-        .headline-no-wrap-row::-webkit-scrollbar {
-            display: none;
-        }
         .headline-no-wrap-text {
-            white-space: nowrap;
-            flex-shrink: 0;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+            white-space: normal;
+        }
+        @media (min-width: 1024px) {
+            .headline-no-wrap-row {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                overflow-y: visible;
+            }
+            .headline-no-wrap-row::-webkit-scrollbar {
+                display: none;
+            }
+            .headline-no-wrap-text {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
         }
         .nav-hide-scrollbar {
             scrollbar-width: none;
@@ -78,57 +95,57 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased">
-    <div class="hero-gradient min-h-screen">
-        <nav class="max-w-7xl mx-auto px-6 py-8 flex flex-nowrap justify-between items-center gap-4 relative z-50 min-w-0">
-            <div class="text-2xl font-bold tracking-tighter shrink-0 whitespace-nowrap">Anonify<span class="accent-text">DB</span></div>
-            <div class="hidden md:flex flex-nowrap flex-1 justify-end items-center gap-x-4 lg:gap-x-6 xl:gap-x-8 min-w-0 overflow-x-auto overscroll-x-contain nav-hide-scrollbar py-1 text-sm font-medium text-slate-400">
-                <a href="#why-we-built" class="hover:text-white transition shrink-0 whitespace-nowrap">Why we built</a>
-                <a href="#solution" class="hover:text-white transition shrink-0 whitespace-nowrap">Solution</a>
-                <a href="#capabilities" class="hover:text-white transition shrink-0 whitespace-nowrap">Capabilities</a>
-                <a href="#developer-experience" class="hover:text-white transition shrink-0 whitespace-nowrap">Developers</a>
-                <a href="#security-modes" class="hover:text-white transition shrink-0 whitespace-nowrap">Privacy modes</a>
-                <a href="#killer-features" class="hover:text-white transition shrink-0 whitespace-nowrap">Enterprise</a>
-                <a href="#how-it-works" class="hover:text-white transition shrink-0 whitespace-nowrap">How it works</a>
-                <a href="#industries" class="hover:text-white transition shrink-0 whitespace-nowrap">Industries</a>
-                <a href="#compliance" class="hover:text-white transition shrink-0 whitespace-nowrap">Compliance</a>
+<body class="font-sans antialiased overflow-x-hidden">
+    <div class="hero-gradient min-h-screen w-full min-w-0 max-w-full overflow-x-hidden md:overflow-visible">
+        <nav class="w-full min-w-0 max-w-full mx-auto px-4 py-6 sm:py-8 flex flex-wrap md:flex-nowrap justify-between items-center gap-x-3 gap-y-3 relative z-50 overflow-x-hidden md:overflow-visible">
+            <div class="text-lg sm:text-xl md:text-2xl font-bold tracking-tighter shrink-0 min-w-0" style="color: #ffffff !important;">Anonify<span class="accent-text">DB</span></div>
+            <div class="hidden md:flex flex-nowrap flex-1 justify-end items-center gap-x-4 lg:gap-x-6 xl:gap-x-8 overflow-x-auto overscroll-x-contain nav-hide-scrollbar py-3 text-sm font-medium">
+                <a href="#why-we-built" class="inline-block whitespace-nowrap shrink-0 min-w-max px-0.5 py-1 hover:opacity-90 transition" style="color: #ffffff !important;">Why we built</a>
+                <a href="#solution" class="inline-block whitespace-nowrap shrink-0 min-w-max px-0.5 py-1 hover:opacity-90 transition" style="color: #ffffff !important;">Solution</a>
+                <a href="#capabilities" class="inline-block whitespace-nowrap shrink-0 min-w-max px-0.5 py-1 hover:opacity-90 transition" style="color: #ffffff !important;">Capabilities</a>
+                <a href="#developer-experience" class="inline-block whitespace-nowrap shrink-0 min-w-max px-0.5 py-1 hover:opacity-90 transition" style="color: #ffffff !important;">Developers</a>
+                <a href="#security-modes" class="inline-block whitespace-nowrap shrink-0 min-w-max px-0.5 py-1 hover:opacity-90 transition" style="color: #ffffff !important;">Privacy modes</a>
+                <a href="#killer-features" class="inline-block whitespace-nowrap shrink-0 min-w-max px-0.5 py-1 hover:opacity-90 transition" style="color: #ffffff !important;">Enterprise</a>
+                <a href="#how-it-works" class="inline-block whitespace-nowrap shrink-0 min-w-max px-0.5 py-1 hover:opacity-90 transition" style="color: #ffffff !important;">How it works</a>
+                <a href="#industries" class="inline-block whitespace-nowrap shrink-0 min-w-max px-0.5 py-1 hover:opacity-90 transition" style="color: #ffffff !important;">Industries</a>
+                <a href="#compliance" class="inline-block whitespace-nowrap shrink-0 min-w-max px-0.5 py-1 hover:opacity-90 transition" style="color: #ffffff !important;">Compliance</a>
             </div>
-            <div class="flex flex-nowrap items-center gap-2 sm:gap-3 shrink-0">
-                <a href="mailto:contact@anonifydb.com" class="hero-cta-primary bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition whitespace-nowrap">Request Early Access</a>
-                <button type="button" id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]" aria-expanded="false" aria-controls="mobile-menu-panel" aria-label="Open menu">
+            <div class="flex flex-wrap md:flex-nowrap items-center justify-end gap-2 sm:gap-3 shrink-0 min-w-0 max-w-full">
+                <a href="mailto:contact@anonifydb.com" class="hero-cta-primary bg-blue-600 hover:bg-blue-500 px-3 py-2 sm:px-5 sm:py-2 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition inline-block max-w-full text-center whitespace-normal sm:whitespace-nowrap leading-snug" style="color: #ffffff !important;">Request Early Access</a>
+                <button type="button" id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-700 hover:bg-slate-800 hover:opacity-90 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]" style="color: #ffffff !important;" aria-expanded="false" aria-controls="mobile-menu-panel" aria-label="Open menu">
                     <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
                 </button>
             </div>
         </nav>
 
         <!-- Mobile slide-over -->
-        <div id="mobile-menu" class="fixed inset-0 z-40 md:hidden hidden" aria-hidden="true">
+        <div id="mobile-menu" class="fixed inset-0 z-[60] md:hidden hidden" aria-hidden="true">
             <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm" aria-hidden="true"></div>
-            <div id="mobile-menu-panel" class="absolute top-0 right-0 h-full w-full max-w-[min(100vw,20rem)] bg-slate-900 border-l border-slate-800 shadow-2xl flex flex-col pt-24 px-6 pb-8">
-                <button type="button" id="mobile-menu-close" class="absolute top-6 right-6 inline-flex items-center justify-center p-2 rounded-lg border border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Close menu">
+            <div id="mobile-menu-panel" class="absolute top-0 right-0 h-full w-full max-w-[min(100vw,20rem)] bg-slate-900 border-l border-slate-800 shadow-2xl flex flex-col pt-24 px-4 pb-8 overflow-visible">
+                <button type="button" id="mobile-menu-close" class="absolute top-6 right-6 inline-flex items-center justify-center p-2 rounded-lg border border-slate-700 hover:bg-slate-800 hover:opacity-90 transition focus:outline-none focus:ring-2 focus:ring-blue-500" style="color: #ffffff !important;" aria-label="Close menu">
                     <i data-lucide="x" class="w-6 h-6" aria-hidden="true"></i>
                 </button>
-                <nav class="flex flex-col gap-6 text-lg font-medium text-slate-300" aria-label="Mobile">
-                    <a href="#why-we-built" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Why we built</a>
-                    <a href="#solution" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Solution</a>
-                    <a href="#capabilities" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Capabilities</a>
-                    <a href="#developer-experience" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Developers</a>
-                    <a href="#security-modes" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Privacy modes</a>
-                    <a href="#killer-features" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Enterprise</a>
-                    <a href="#how-it-works" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">How it works</a>
-                    <a href="#industries" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Industries</a>
-                    <a href="#compliance" class="mobile-nav-link hover:text-white transition py-2 border-b border-slate-800">Compliance</a>
+                <nav class="flex flex-col gap-6 text-lg font-medium overflow-visible" aria-label="Mobile">
+                    <a href="#why-we-built" class="mobile-nav-link inline-block min-w-max whitespace-nowrap py-2 border-b border-slate-800 hover:opacity-90 transition" style="color: #ffffff !important;">Why we built</a>
+                    <a href="#solution" class="mobile-nav-link inline-block min-w-max whitespace-nowrap py-2 border-b border-slate-800 hover:opacity-90 transition" style="color: #ffffff !important;">Solution</a>
+                    <a href="#capabilities" class="mobile-nav-link inline-block min-w-max whitespace-nowrap py-2 border-b border-slate-800 hover:opacity-90 transition" style="color: #ffffff !important;">Capabilities</a>
+                    <a href="#developer-experience" class="mobile-nav-link inline-block min-w-max whitespace-nowrap py-2 border-b border-slate-800 hover:opacity-90 transition" style="color: #ffffff !important;">Developers</a>
+                    <a href="#security-modes" class="mobile-nav-link inline-block min-w-max whitespace-nowrap py-2 border-b border-slate-800 hover:opacity-90 transition" style="color: #ffffff !important;">Privacy modes</a>
+                    <a href="#killer-features" class="mobile-nav-link inline-block min-w-max whitespace-nowrap py-2 border-b border-slate-800 hover:opacity-90 transition" style="color: #ffffff !important;">Enterprise</a>
+                    <a href="#how-it-works" class="mobile-nav-link inline-block min-w-max whitespace-nowrap py-2 border-b border-slate-800 hover:opacity-90 transition" style="color: #ffffff !important;">How it works</a>
+                    <a href="#industries" class="mobile-nav-link inline-block min-w-max whitespace-nowrap py-2 border-b border-slate-800 hover:opacity-90 transition" style="color: #ffffff !important;">Industries</a>
+                    <a href="#compliance" class="mobile-nav-link inline-block min-w-max whitespace-nowrap py-2 border-b border-slate-800 hover:opacity-90 transition" style="color: #ffffff !important;">Compliance</a>
                 </nav>
             </div>
         </div>
 
-        <header class="max-w-5xl mx-auto px-6 pt-16 sm:pt-20 pb-12 sm:pb-16 text-center">
+        <header class="relative z-50 w-full min-w-0 max-w-full mx-auto px-4 pt-16 sm:pt-20 pb-12 sm:pb-16 text-center overflow-x-hidden md:overflow-visible">
             <div class="headline-no-wrap-row mb-5 sm:mb-6 px-1">
-                <h1 class="headline-no-wrap-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08]">
+                <h1 class="headline-no-wrap-text text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.15] px-1" style="color: #ffffff !important;">
                     Safe Data. <span class="accent-text">Faster Innovation.</span>
                 </h1>
             </div>
-            <p class="text-lg sm:text-xl md:text-2xl text-slate-300 font-semibold max-w-3xl mx-auto mb-6 sm:mb-8 leading-snug text-balance">
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-100 font-semibold max-w-3xl mx-auto mb-6 sm:mb-8 leading-snug text-balance">
                 Ninja has no face. Neither will your <span class="text-white">sensitive data</span>.
             </p>
             <p class="text-base sm:text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 sm:mb-12 leading-relaxed px-1">
@@ -136,14 +153,14 @@
             </p>
             <div class="flex flex-col sm:flex-row sm:flex-nowrap justify-center items-stretch sm:items-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto w-full">
                 <button type="button" id="btn-modal-use-cases" class="w-full sm:w-auto shrink-0 whitespace-nowrap bg-white text-black px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]">View Use Cases</button>
-                <button type="button" id="btn-modal-whitepaper" class="w-full sm:w-auto shrink-0 whitespace-nowrap border border-slate-700 px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-slate-800 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]">Technical Whitepaper</button>
+                <button type="button" id="btn-modal-whitepaper" class="w-full sm:w-auto shrink-0 whitespace-nowrap border border-slate-700 text-gray-100 px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-slate-800 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#020617]">Technical Whitepaper</button>
             </div>
             <p class="mt-8 sm:mt-10 text-xs sm:text-sm font-medium tracking-wide text-slate-500 max-w-xl mx-auto px-2">Built for engineers. Trusted by the CISO.</p>
         </header>
 
         <!-- Accelerator / maturity placeholder -->
-        <div class="max-w-4xl mx-auto px-6 pb-24">
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 px-6 py-4 text-center">
+        <div class="w-full min-w-0 max-w-full mx-auto px-4 pb-24 overflow-x-hidden md:overflow-visible relative z-50">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 px-4 sm:px-6 py-4 text-center max-w-full">
                 <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Raise-ready</p>
                 <p class="text-sm md:text-base text-slate-400">
                     <span class="text-slate-200 font-semibold">Enterprise Trust &amp; DACH Compliance</span>
@@ -154,8 +171,8 @@
         </div>
     </div>
 
-    <section id="why-we-built" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24">
-        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Why we built AnonifyDB</h2></div>
+    <section id="why-we-built" class="py-24 px-4 w-full max-w-7xl mx-auto scroll-mt-24">
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-center text-gray-100 break-words max-w-full px-2">Why we built AnonifyDB</h2></div>
         <p class="text-slate-400 text-center max-w-3xl mx-auto mb-10 md:mb-12 text-sm md:text-base leading-relaxed">Across Swiss banking and continental insurance, we kept watching the same failure mode: teams treating sensitive data access like a <strong class="text-slate-200 font-semibold">&ldquo;pinky swear&rdquo;</strong>—handshake NDAs, heroic manual exports, and ticket-by-ticket exceptions instead of enforceable controls.</p>
         <div class="max-w-3xl mx-auto rounded-3xl border border-slate-700/55 bg-slate-900/55 p-8 md:p-10 space-y-6 text-sm md:text-base text-slate-300 leading-relaxed">
             <p>Risk and privacy officers weren&rsquo;t blocking AI out of spite; they withheld production paths because nobody could show <strong class="text-white">consistent minimization at the wire</strong>. Every pilot became a bespoke negotiation—slow, brittle, and impossible to audit under supervisory scrutiny.</p>
@@ -163,8 +180,8 @@
         </div>
     </section>
 
-    <section id="solution" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
-        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">The Solution</h2></div>
+    <section id="solution" class="py-24 px-4 w-full max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-center text-gray-100 break-words max-w-full px-2">The Solution</h2></div>
         <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12 md:mb-14 text-sm md:text-base leading-relaxed">Dual operating modes, surgical or full-database masking, and one-click provisioning—built for regulated Azure estates, AI-assisted workloads, and audit-ready evidence in banking and insurance.</p>
 
         <div class="grid md:grid-cols-3 gap-8 md:gap-10">
@@ -207,7 +224,7 @@
                 <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(transparent_0px,rgba(15,23,42,0.4)_1px,transparent_2px)] bg-[length:100%_3px] opacity-40" aria-hidden="true"></div>
                 <div class="relative space-y-8">
                     <div>
-                        <div class="headline-no-wrap-row mb-2 justify-start"><h3 class="headline-no-wrap-text text-lg md:text-xl font-bold text-white">Features &amp; technical specifications</h3></div>
+                        <div class="headline-no-wrap-row mb-2 justify-start"><h3 class="headline-no-wrap-text text-base sm:text-lg md:text-xl font-bold text-white break-words max-w-full">Features &amp; technical specifications</h3></div>
                         <p class="text-sm md:text-base text-slate-300 leading-relaxed">Production-aligned masking for supervisory environments: <strong class="text-white">dual operating mode</strong> (proxy vs. at-rest), <strong class="text-white">programmatic delivery</strong> via API for agents and CI/CD, and <strong class="text-white">one-click deployment</strong> into isolated targets—without sacrificing join fidelity or audit evidence.</p>
                     </div>
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
@@ -288,9 +305,9 @@
         <p class="mt-10 md:mt-12 text-center text-base md:text-lg font-bold tracking-tight"><span class="accent-text">Full Vision, Zero Risk</span></p>
     </section>
 
-    <section id="developer-experience" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
+    <section id="developer-experience" class="py-24 px-4 w-full max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
         <p class="text-center text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-3">For lead engineers &amp; platform security</p>
-        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Developer &amp; AI agent enablement</h2></div>
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-center text-gray-100 break-words max-w-full px-2">Developer &amp; AI agent enablement</h2></div>
         <p class="text-slate-400 text-center max-w-3xl mx-auto mb-4 text-sm md:text-base leading-relaxed">AnonifyDB functions as a <strong class="text-slate-200 font-semibold">data delivery layer</strong>: provision governed, anonymized databases through contracts your toolchain already understands—without queueing weeks for manual compliance sign-off on every refresh.</p>
         <p class="text-slate-500 text-center max-w-2xl mx-auto mb-12 md:mb-14 text-xs md:text-sm leading-relaxed">Policy gates remain authoritative; execution becomes repeatable, observable, and safe for autonomous tooling.</p>
 
@@ -329,9 +346,9 @@
         </div>
     </section>
 
-    <section id="security-modes" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
+    <section id="security-modes" class="py-24 px-4 w-full max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
         <p class="text-center text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-3">Security architecture</p>
-        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Dual-layer privacy</h2></div>
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-center text-gray-100 break-words max-w-full px-2">Dual-layer privacy</h2></div>
         <p class="text-slate-400 text-center max-w-3xl mx-auto mb-12 md:mb-14 text-sm md:text-base leading-relaxed">Two masking depths for two threat models—chosen per workload, dataset, or agent trust boundary. <strong class="text-slate-200 font-semibold">Chief Information Security Officers</strong> retain policy ownership; <strong class="text-slate-200 font-semibold">lead engineers</strong> select the mode that matches refactoring vs. third-party AI exposure.</p>
 
         <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
@@ -394,9 +411,9 @@
         <p class="max-w-3xl mx-auto mt-10 md:mt-12 text-center text-xs md:text-sm text-slate-500 leading-relaxed">Use standard mode for internal engineering fidelity; escalate to structural mode when tooling crosses trust zones or when regulators expect proof that <strong class="text-slate-400 font-semibold">domain semantics never left your boundary</strong>.</p>
     </section>
 
-    <section id="killer-features" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
+    <section id="killer-features" class="py-24 px-4 w-full max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
         <p class="text-center text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-3">Enterprise · supervisory-grade controls</p>
-        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Killer features for compliance velocity</h2></div>
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-center text-gray-100 break-words max-w-full px-2">Killer features for compliance velocity</h2></div>
         <p class="text-slate-400 text-center max-w-3xl mx-auto mb-12 md:mb-14 text-sm md:text-base leading-relaxed">Ship at FinTech cadence without outrunning legal: cryptographic evidence, incremental synchronization, live egress enforcement, and ephemeral compute—each tuned so <strong class="text-slate-200 font-semibold">engineering throughput</strong> and <strong class="text-slate-200 font-semibold">regulatory defensibility</strong> rise together.</p>
 
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
@@ -455,7 +472,7 @@
                             <h3 class="text-2xl md:text-3xl lg:text-[1.75rem] font-extrabold tracking-tight text-white leading-tight whitespace-nowrap shrink-0">Ghost environments</h3>
                         </div>
                         <div class="headline-no-wrap-row mb-6 justify-start">
-                            <p class="headline-no-wrap-text text-xl md:text-2xl font-bold text-cyan-100/95 leading-snug">&ldquo;One API call, zero trace, total compliance.&rdquo;</p>
+                            <p class="headline-no-wrap-text text-lg sm:text-xl md:text-2xl font-bold text-cyan-100/95 leading-snug break-words">&ldquo;One API call, zero trace, total compliance.&rdquo;</p>
                         </div>
                         <p class="text-sm md:text-base text-slate-300 leading-relaxed mb-5">Developers and autonomous agents never touch a durable connection string. Instead they receive ephemeral access to a <strong class="text-white">Ghost database</strong>: an <strong class="text-white">in-memory instance</strong> spun on demand inside your perimeter, fed only by governed masking pipelines.</p>
                         <p class="text-sm md:text-base text-slate-400 leading-relaxed">When the session terminates, working sets evaporate—<strong class="text-slate-300">no residual pages</strong>, <strong class="text-slate-300">no orphaned replicas</strong>—preserving data-subject minimization narratives regulators actually accept.</p>
@@ -493,8 +510,8 @@
         </div>
     </section>
 
-    <section id="how-it-works" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
-        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">How it works</h2></div>
+    <section id="how-it-works" class="py-24 px-4 w-full max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-center text-gray-100 break-words max-w-full px-2">How it works</h2></div>
         <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12 md:mb-14 text-sm md:text-base">From attachment to anonymized consumption—three reproducible steps.</p>
         <div class="max-w-5xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-stretch md:justify-between gap-4 md:gap-3" role="list" aria-label="Workflow steps">
@@ -534,8 +551,8 @@
         </div>
     </section>
 
-    <section id="industries" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
-        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Built for DACH finance</h2></div>
+    <section id="industries" class="py-24 px-4 w-full max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-center text-gray-100 break-words max-w-full px-2">Built for DACH finance</h2></div>
         <p class="text-slate-400 text-center max-w-2xl mx-auto mb-10 md:mb-12 text-sm md:text-base leading-relaxed"><strong class="text-slate-200 font-semibold">Finance, banking, and insurance</strong> in Germany, Austria, and Switzerland—where BaFin, FMA, and FINMA-aligned scrutiny makes anonymization a board-level control, not an engineering nicety.</p>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
             <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 text-center flex flex-col items-center gap-3 hover:border-slate-700 transition">
@@ -561,8 +578,8 @@
         </div>
     </section>
 
-    <section id="compliance" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
-        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-3xl md:text-4xl font-extrabold tracking-tight text-center">Compliance</h2></div>
+    <section id="compliance" class="py-24 px-4 w-full max-w-7xl mx-auto scroll-mt-24 border-t border-slate-900">
+        <div class="headline-no-wrap-row mb-4 px-2"><h2 class="headline-no-wrap-text text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-center text-gray-100 break-words max-w-full px-2">Compliance</h2></div>
         <p class="text-slate-400 text-center max-w-2xl mx-auto mb-6 text-sm md:text-base leading-relaxed"><strong class="text-slate-200 font-semibold">GDPR sovereignty</strong> means data stays within your governed boundary, processed under documented purpose and minimization—not repatriated through opaque AI prompts or shared inference tiers.</p>
         <p class="text-slate-400 text-center max-w-2xl mx-auto mb-8 text-sm md:text-base leading-relaxed">Raw production identifiers in LLM context or autonomous agents collide with Articles 5 and 25 obligations; supervisors treat &ldquo;pilot exceptions&rdquo; as institutional risk.</p>
         <div class="max-w-3xl mx-auto mb-6 rounded-xl border border-violet-900/40 bg-violet-950/20 px-4 py-4 sm:px-5 sm:py-4 flex gap-3 sm:gap-4" role="note">
@@ -653,7 +670,7 @@
                     </button>
                 </div>
                 <div class="px-5 py-5 sm:px-8 sm:py-6 flex-1">
-                    <h2 id="modal-use-cases-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-6 pr-2">Enterprise AI Use Cases</h2>
+                    <h2 id="modal-use-cases-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-6 pr-2 break-words">Enterprise AI Use Cases</h2>
                     <ul class="space-y-6">
                         <li class="rounded-xl border border-slate-800 bg-slate-950/40 p-4 sm:p-5">
                             <h3 class="text-base font-bold text-slate-100 mb-2">Safe LLM Fine-tuning</h3>
@@ -685,7 +702,7 @@
                     </button>
                 </div>
                 <div class="px-5 py-5 sm:px-8 sm:py-6 flex-1">
-                    <h2 id="modal-whitepaper-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-6 pr-2">AnonifyDB Technical Architecture</h2>
+                    <h2 id="modal-whitepaper-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-6 pr-2 break-words">AnonifyDB Technical Architecture</h2>
                     <div class="space-y-5">
                         <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4 sm:p-5">
                             <h3 class="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-2">Low-Latency Proxy</h3>
@@ -715,11 +732,17 @@
         </div>
     </div>
 
-    <footer id="contact" class="py-12 border-t border-slate-900 text-center text-slate-600 text-sm space-y-3 px-6">
+    <footer id="contact" class="py-12 border-t border-slate-900 text-center text-slate-600 text-sm space-y-4 px-4 w-full max-w-full mx-auto">
+        <nav class="flex flex-col md:flex-row flex-wrap justify-center items-center gap-x-8 gap-y-2 font-medium text-base" aria-label="Footer shortcuts">
+            <a href="#solution" class="text-slate-400 hover:text-white transition break-words text-center">Solutions</a>
+            <a href="#capabilities" class="text-slate-400 hover:text-white transition break-words text-center">Tech</a>
+            <a href="#compliance" class="text-slate-400 hover:text-white transition break-words text-center">Compliance</a>
+            <a href="#contact" class="text-slate-400 hover:text-white transition break-words text-center">Contact</a>
+        </nav>
         <p>© 2026 AnonifyDB. Built for engineers. Trusted by the CISO.</p>
         <p>
             <span class="text-slate-500">Contact:</span>
-            <a href="mailto:contact@anonifydb.com" class="text-sky-400 hover:text-sky-300 transition whitespace-nowrap font-medium">contact@anonifydb.com</a>
+            <a href="mailto:contact@anonifydb.com" class="text-sky-400 hover:text-sky-300 transition font-medium break-all inline-block max-w-full align-middle">contact@anonifydb.com</a>
         </p>
     </footer>
 
