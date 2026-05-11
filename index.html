@@ -1,91 +1,70 @@
-﻿```html
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AnonifyDB</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 700px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 56px;
-      margin-bottom: 20px;
-    }
-
-    .highlight {
-      color: #38bdf8;
-    }
-
-    p {
-      font-size: 20px;
-      line-height: 1.7;
-      color: #cbd5e1;
-      margin-bottom: 30px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 28px;
-      background: #38bdf8;
-      color: #0f172a;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-
-    .footer {
-      margin-top: 50px;
-      font-size: 14px;
-      color: #64748b;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnonifyDB | Data Sovereignty for AI Age</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: #f8fafc; }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
+        }
+        .accent-text {
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
+<body class="font-sans antialiased">
+    <div class="hero-gradient min-h-screen">
+        <nav class="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tighter">Anonify<span class="accent-text">DB</span></div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="#problem" class="hover:text-white transition">Problem</a>
+                <a href="#solution" class="hover:text-white transition">Solution</a>
+                <a href="#compliance" class="hover:text-white transition">Compliance</a>
+            </div>
+            <a href="mailto:contact@anonifydb.com" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold transition">Get Early Access</a>
+        </nav>
 
-<body>
-  <div class="container">
-    <h1><span class="highlight">AnonifyDB</span></h1>
-
-    <p>
-      Privacy-first database anonymization for development,
-      testing, analytics, and AI workflows.
-    </p>
-
-    <a class="button" href="#">
-      Coming Soon
-    </a>
-
-    <div class="footer">
-      © 2026 AnonifyDB
+        <header class="max-w-5xl mx-auto px-6 pt-20 pb-32 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
+                The Shield for Your <span class="accent-text">Enterprise Data</span> in the AI Era
+            </h1>
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-12">
+                Secure your databases before they reach LLMs. Prevent the <strong>BodySnatcher Effect</strong> and stay GDPR compliant while scaling your AI agents.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <button class="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-200 transition">View Use Cases</button>
+                <button class="border border-slate-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-800 transition">Technical Whitepaper</button>
+            </div>
+        </header>
     </div>
-  </div>
+
+    <section id="problem" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="p-8 rounded-3xl bg-slate-900/50 border border-slate-800">
+                <div class="text-blue-400 text-3xl mb-4">🛡️</div>
+                <h3 class="text-xl font-bold mb-4">Real-time Anonymization</h3>
+                <p class="text-slate-400 text-sm">Intercept and redact PII (Personally Identifiable Information) before it ever leaves your infrastructure.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-slate-900/50 border border-slate-800">
+                <div class="text-blue-400 text-3xl mb-4">🔒</div>
+                <h3 class="text-xl font-bold mb-4">Zero-Trust for LLMs</h3>
+                <p class="text-slate-400 text-sm">Ensure your database schema and sensitive records don't become part of the public AI's knowledge base.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-slate-900/50 border border-slate-800">
+                <div class="text-blue-400 text-3xl mb-4">🇪🇺</div>
+                <h3 class="text-xl font-bold mb-4">DACH Region Ready</h3>
+                <p class="text-slate-400 text-sm">Specifically architected to meet the most stringent German (BfDI) and Swiss data protection requirements.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-slate-900 text-center text-slate-600 text-sm">
+        <p>© 2026 AnonifyDB. Built for Data Engineers, trusted by CISO office.</p>
+    </footer>
 </body>
 </html>
-```
