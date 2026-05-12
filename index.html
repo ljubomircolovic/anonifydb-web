@@ -367,11 +367,12 @@
                 <p class="text-sm text-slate-400 leading-relaxed mb-6 flex-1"><strong class="text-slate-200">Table and column names stay recognizable</strong> so ORMs, stored procedures, and migration scripts keep meaning. Cell values are masked or pseudonymized—ideal when teams must <strong class="text-slate-200">refactor business logic</strong> against a truthful relational shape.</p>
                 <div class="rounded-xl border border-emerald-800/40 bg-[#020617]/80 p-4" aria-hidden="true">
                     <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-500/80 mb-3 flex items-center gap-2"><span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Readable structure · masked values</p>
-                    <div class="privacy-diagram text-slate-300 space-y-2">
-                        <div class="flex items-center gap-2 text-emerald-300/95"><span class="text-slate-600">┌</span><span class="border-b border-emerald-600/50 pb-px">Customers</span><span class="text-slate-600">────────────┐</span></div>
-                        <div><span class="text-slate-600">│</span> <span class="text-slate-500">email</span>        <span class="text-slate-600">│</span> <span class="text-slate-500">iban</span>           <span class="text-slate-600">│</span></div>
-                        <div><span class="text-slate-600">│</span> <span class="text-amber-200/80">4f4f8c95c711@anon.local</span> <span class="text-slate-600">│</span> <span class="text-amber-200/80">DE**…**9000</span> <span class="text-slate-600">│</span></div>
-                        <div><span class="text-slate-600">└──────────────────┴────────────────┘</span></div>
+                    <div class="privacy-diagram text-slate-300">
+                        <pre class="font-mono text-[11px] leading-tight text-slate-300 whitespace-pre m-0 overflow-x-auto"><span class="text-slate-600">┌─ </span><span class="text-emerald-300/95">Customers</span><span class="text-slate-600"> ─────────────┬─────────────┐</span>
+<span class="text-slate-600">│</span> <span class="text-slate-500">email</span>                   <span class="text-slate-600">│</span> <span class="text-slate-500">iban</span>        <span class="text-slate-600">│</span>
+<span class="text-slate-600">├─────────────────────────┼─────────────┤</span>
+<span class="text-slate-600">│</span> <span class="text-amber-200/80">4f4f8c95c711@anon.local</span> <span class="text-slate-600">│</span> <span class="text-amber-200/80">DE**…**9000</span> <span class="text-slate-600">│</span>
+<span class="text-slate-600">└─────────────────────────┴─────────────┘</span></pre>
                     </div>
                     <p class="mt-3 text-[10px] text-slate-600 leading-snug font-medium">Domain vocabulary retained · joins &amp; keys behave as in production patterns</p>
                 </div>
@@ -390,11 +391,12 @@
                 <p class="text-sm text-slate-400 leading-relaxed mb-6 flex-1">For <strong class="text-slate-200">external or opaque AI agents</strong>, obfuscate identifiers at both layers: payload <em>and</em> metadata. Table <code class="text-violet-300/95 bg-violet-950/40 px-1 rounded text-[13px]">Customers</code> becomes <code class="text-violet-300/95 bg-violet-950/40 px-1 rounded text-[13px]">Entity_A</code>; column <code class="text-violet-300/95 bg-violet-950/40 px-1 rounded text-[13px]">Email</code> becomes <code class="text-violet-300/95 bg-violet-950/40 px-1 rounded text-[13px]">Attr_1</code>—so the model gains <strong class="text-slate-200">no recoverable map</strong> to your business domain.</p>
                 <div class="rounded-xl border border-violet-800/45 bg-[#020617]/80 p-4" aria-hidden="true">
                     <p class="text-[10px] font-bold uppercase tracking-wider text-violet-400/90 mb-3 flex items-center gap-2"><span class="inline-block h-1.5 w-1.5 rounded-full bg-violet-400"></span> Obfuscated structure · masked values</p>
-                    <div class="privacy-diagram text-slate-300 space-y-2">
-                        <div class="flex items-center gap-2 text-violet-300/95"><span class="text-slate-600">┌</span><span class="border-b border-violet-600/50 pb-px">Entity_A</span><span class="text-slate-600">─────────────┐</span></div>
-                        <div><span class="text-slate-600">│</span> <span class="text-violet-400/90">Attr_1</span>       <span class="text-slate-600">│</span> <span class="text-violet-400/90">Attr_2</span>          <span class="text-slate-600">│</span></div>
-                        <div><span class="text-slate-600">│</span> <span class="text-amber-200/80">4f4f8c95c711@anon.local</span> <span class="text-slate-600">│</span> <span class="text-amber-200/80">DE**…**9000</span> <span class="text-slate-600">│</span></div>
-                        <div><span class="text-slate-600">└──────────────────┴────────────────┘</span></div>
+                    <div class="privacy-diagram text-slate-300">
+                        <pre class="font-mono text-[11px] leading-tight text-slate-300 whitespace-pre m-0 overflow-x-auto"><span class="text-slate-600">┌─ </span><span class="text-violet-300/95">Entity_A</span><span class="text-slate-600"> ──────────────┬─────────────┐</span>
+<span class="text-slate-600">│</span> <span class="text-violet-400/90">Attr_1</span>                  <span class="text-slate-600">│</span> <span class="text-violet-400/90">Attr_2</span>      <span class="text-slate-600">│</span>
+<span class="text-slate-600">├─────────────────────────┼─────────────┤</span>
+<span class="text-slate-600">│</span> <span class="text-amber-200/80">4f4f8c95c711@anon.local</span> <span class="text-slate-600">│</span> <span class="text-amber-200/80">DE**…**9000</span> <span class="text-slate-600">│</span>
+<span class="text-slate-600">└─────────────────────────┴─────────────┘</span></pre>
                     </div>
                     <div class="mt-4 flex flex-wrap items-center gap-2 text-[10px] text-slate-500">
                         <span class="rounded border border-slate-700 bg-slate-950 px-2 py-1 font-mono text-slate-400">Customers</span>
@@ -468,25 +470,29 @@
                     <p class="text-sm text-slate-400 mt-2 leading-relaxed break-words"><strong class="text-slate-200">Unidirectional Data Preview</strong> augments the interactive preview surface: administrators select live production rows and inspect—field-for-field—how those rows will materialize in the <strong class="text-slate-200">target database</strong> after policies execute, before any irreversible push.</p>
                 </div>
             </div>
-            <div class="grid md:grid-cols-2 min-w-0 max-w-full divide-y md:divide-y-0 md:divide-x divide-slate-800">
-                <div class="p-5 md:p-6 bg-slate-900/50 min-w-0 max-w-full">
-                    <p class="text-[10px] font-bold uppercase tracking-wider text-rose-400/95 mb-3 flex items-center gap-2"><span class="inline-block h-1.5 w-1.5 rounded-full bg-rose-400"></span> Source · production</p>
-                    <div class="rounded-lg border border-slate-700/80 bg-[#020617]/90 font-mono text-[11px] sm:text-xs text-slate-300 leading-relaxed p-4 space-y-1.5 max-w-full whitespace-pre-wrap break-all" aria-hidden="true">
+            <div class="grid md:grid-cols-2 items-stretch min-w-0 max-w-full divide-y md:divide-y-0 md:divide-x divide-slate-800">
+                <div class="p-5 md:p-6 bg-slate-900/50 min-w-0 max-w-full flex flex-col">
+                    <div class="md:h-32 flex flex-col mb-3 md:mb-4">
+                        <p class="text-[10px] font-bold uppercase tracking-wider text-rose-400/95 flex items-center gap-2 min-h-[1.75rem]"><span class="inline-block h-1.5 w-1.5 rounded-full bg-rose-400"></span> Source · production</p>
+                    </div>
+                    <div class="flex-1 grow rounded-lg border border-slate-700/80 bg-[#020617]/90 font-mono text-[11px] sm:text-xs text-slate-300 leading-relaxed p-4 space-y-1.5 max-w-full whitespace-pre-wrap break-all" aria-hidden="true">
                         <div class="text-slate-500 border-b border-slate-800 pb-2 mb-2 break-words">customers_prod</div>
                         <div class="break-all"><span class="text-slate-500">id</span>     <span class="text-rose-200/90">928417</span></div>
                         <div class="break-all"><span class="text-slate-500">email</span>  <span class="text-rose-200/90">lena.mueller@megabank.de</span></div>
                         <div class="break-all"><span class="text-slate-500">iban</span>   <span class="text-rose-200/90">DE89 3704 0044 0532 0130 00</span></div>
                     </div>
                 </div>
-                <div class="p-5 md:p-6 bg-indigo-950/30 min-w-0 max-w-full">
-                    <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-400/95 mb-3 flex items-center gap-2"><span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Preview · anonymized target</p>
-                    <div class="rounded-lg border border-indigo-500/25 bg-[#020617]/90 font-mono text-[11px] sm:text-xs text-slate-300 leading-relaxed p-4 space-y-1.5 max-w-full whitespace-pre-wrap break-all" aria-hidden="true">
+                <div class="p-5 md:p-6 bg-indigo-950/30 min-w-0 max-w-full flex flex-col">
+                    <div class="md:h-32 flex flex-col mb-3 md:mb-4">
+                        <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-400/95 flex items-center gap-2 min-h-[1.75rem]"><span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Preview · anonymized target</p>
+                        <p class="mt-3 text-[11px] text-indigo-200/80 font-medium leading-snug break-words">Same joins &amp; distributions—no recoverable bridge back to source identifiers in this surface.</p>
+                    </div>
+                    <div class="flex-1 grow rounded-lg border border-indigo-500/25 bg-[#020617]/90 font-mono text-[11px] sm:text-xs text-slate-300 leading-relaxed p-4 space-y-1.5 max-w-full whitespace-pre-wrap break-all" aria-hidden="true">
                         <div class="text-slate-500 border-b border-slate-800 pb-2 mb-2 break-words">customers_masked_dev</div>
                         <div class="break-all"><span class="text-slate-500">id</span>     <span class="text-emerald-200/90">cust_u7k3q</span></div>
                         <div class="break-all"><span class="text-slate-500">email</span>  <span class="text-emerald-200/90">4f4f8c95c711@anon.local</span></div>
                         <div class="break-all"><span class="text-slate-500">iban</span>   <span class="text-emerald-200/90">DE**···**1300</span></div>
                     </div>
-                    <p class="mt-4 text-[11px] text-indigo-200/80 font-medium leading-snug break-words">Same joins &amp; distributions—no recoverable bridge back to source identifiers in this surface.</p>
                 </div>
             </div>
             <div class="px-5 py-4 md:px-8 md:py-5 border-t border-slate-800 bg-slate-950/65">
