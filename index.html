@@ -314,7 +314,7 @@
         <p class="text-slate-500 text-center max-w-2xl mx-auto mb-12 md:mb-14 text-xs md:text-sm leading-relaxed">Policy gates remain authoritative; execution becomes repeatable, observable, and safe for autonomous tooling.</p>
 
         <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8">
-            <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-8 ring-1 ring-inset ring-slate-700/10 flex flex-col">
+            <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-8 ring-1 ring-inset ring-slate-700/10 flex flex-col min-w-0 max-w-full">
                 <div class="flex flex-nowrap items-center gap-3 mb-5 min-w-0">
                     <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-sky-500/10 border border-sky-500/25 text-sky-400" aria-hidden="true"><i data-lucide="webhook" class="w-5 h-5"></i></span>
                     <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
@@ -323,15 +323,15 @@
                     </div>
                 </div>
                 <p class="text-sm text-slate-400 leading-relaxed flex-1 mb-6">One authenticated request can trigger the full <strong class="text-slate-200">scan → plan → execute</strong> pipeline and return a <strong class="text-slate-200">ready-to-use database endpoint</strong>—aligned with the same policies your CISO approved for batch and proxy paths.</p>
-                <div class="rounded-xl border border-slate-800 bg-[#0f172a] p-4 overflow-x-auto">
+                <div class="rounded-xl border border-slate-800 bg-slate-900/50 p-4 overflow-x-auto max-w-full min-w-0">
                     <p class="text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-2">Illustrative</p>
-                    <pre class="text-[11px] sm:text-xs text-slate-300 leading-relaxed whitespace-pre"><span class="text-violet-400">POST</span> <span class="text-sky-300">/v1/instances/anonymized</span>
+                    <pre class="text-[10px] md:text-xs text-slate-300 leading-relaxed whitespace-pre overflow-x-auto max-w-full"><span class="text-violet-400">POST</span> <span class="text-sky-300">/v1/instances/anonymized</span>
 <span class="text-slate-600">{</span> <span class="text-emerald-400/90">&quot;source&quot;</span><span class="text-slate-600">:</span> <span class="text-amber-200/90">&quot;prod_ledger&quot;</span><span class="text-slate-600">,</span> <span class="text-emerald-400/90">&quot;policy&quot;</span><span class="text-slate-600">:</span> <span class="text-amber-200/90">&quot;dach_qa_v3&quot;</span> <span class="text-slate-600">}</span>
 
 <span class="text-slate-500">→ 201 </span><span class="text-slate-400">{</span> <span class="text-emerald-400/90">&quot;connectionString&quot;</span><span class="text-slate-600">:</span> <span class="text-amber-200/90">&quot;Server=…;Database=qa_tw…&quot;</span> <span class="text-slate-400">}</span></pre>
                 </div>
             </article>
-            <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-8 ring-1 ring-inset ring-slate-700/10 flex flex-col">
+            <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 md:p-8 ring-1 ring-inset ring-slate-700/10 flex flex-col min-w-0 max-w-full">
                 <div class="flex flex-nowrap items-center gap-3 mb-5 min-w-0">
                     <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-500/10 border border-indigo-500/25 text-indigo-400" aria-hidden="true"><i data-lucide="workflow" class="w-5 h-5"></i></span>
                     <div class="min-w-0 overflow-x-auto nav-hide-scrollbar">
